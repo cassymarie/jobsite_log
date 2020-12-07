@@ -6,4 +6,5 @@ end
 
 use SessionController
 use UserController
+use JobsiteController
 run ApplicationController

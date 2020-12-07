@@ -6,13 +6,13 @@ class UserController < ApplicationController
 
     post '/signup' do
         binding.pry
-        user = User.new(params[:user])
-        if user.save
+        @user = User.new(params[:user])
+        if @user.save
             session[:user_id] = user.id
             redirect to '/jobsites'
         else
-           # @error = user.errors.full_messages.join(" - ")
-            erb :'error'
+            @error = user.errors.full_messages.join(" - ")
+            erb :'users/new'
         end
     end
 
