@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201208055127) do
+ActiveRecord::Schema.define(version: 20201208162757) do
 
   create_table "areas", force: :cascade do |t|
     t.string "code", limit: 3
@@ -47,6 +47,11 @@ ActiveRecord::Schema.define(version: 20201208055127) do
 
   create_table "titles", force: :cascade do |t|
     t.string "title"
+  end
+
+  create_table "user_jobsites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "jobsite_id"
   end
 
   create_table "users", force: :cascade do |t|

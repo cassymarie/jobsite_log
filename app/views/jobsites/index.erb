@@ -1,6 +1,7 @@
-<h2>Jobsite List...</h2>
+<h2>Welcome, <%=@user.first_name %></h2>
+<h3>Jobsite List...</h3>
 <ul>
 <% @jobsites.each do |jobsite|%>
-<li><%= jobsite.name %></li>
+<li><a href="/jobsites/<%=jobsite.id%>"><%= jobsite.name %></a></li>
 <%end%>
 </ul>

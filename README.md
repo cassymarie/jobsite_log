@@ -18,7 +18,7 @@ Generate the total hours worked for both: Individual employee and Each Job
 ### MVP
 
 - [x] User Signup
-- [ ] User Login - has access to only individual jobsite
+- [x] User Login - has access to only individual jobsite
 - [ ] Can create a new Jobsite
 - [ ] Can create a Job that belongs to the Jobsite
 - [ ] Can setup areas for specific job
