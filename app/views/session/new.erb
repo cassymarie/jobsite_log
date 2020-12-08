@@ -1,10 +1,10 @@
 <h2>New Session (Log-IN)</h2>
 
 <div class="content">
-    <form action="/signin" method="POST">
+    <form action="/login" method="POST">
         <label>Email: </label><input type="text" name="user[:email]"><br><br>
         <label>Password:</label><input type="password" name="user[:password]"><br><br>
-        <input type="submit" value="Sign-In User">
+        <input type="submit" value="Log-In User"> <label style="color:red;"><%= @error unless @error.blank? %></label>
     </form>
     <br><button><a href="/signup">New User Sign Up</a></button>
 </div>

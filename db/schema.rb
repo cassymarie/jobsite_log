@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201207223710) do
+ActiveRecord::Schema.define(version: 20201208055127) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "code", limit: 3
+    t.string "name"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.integer "title_id"
+  end
+
+  create_table "job_areas", force: :cascade do |t|
+    t.integer "job_id"
+    t.integer "area_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string  "job_number"
+    t.string  "name"
+    t.string  "customer"
+    t.integer "jobsite_id"
+  end
+
+  create_table "jobsites", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "code", limit: 3
+    t.string "name"
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string "title"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

@@ -1,1 +1,6 @@
 <h2>Jobsite List...</h2>
+<ul>
+<% @jobsites.each do |jobsite|%>
+<li><%= jobsite.name %></li>
+<%end%>
+</ul>

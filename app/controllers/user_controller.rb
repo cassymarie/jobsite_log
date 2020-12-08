@@ -1,5 +1,6 @@
 class UserController < ApplicationController
 
+    #View Main Sign-Up Page
     get '/signup' do
         erb :'users/new'
     end
