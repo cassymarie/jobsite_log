@@ -1,2 +1,21 @@
 <h2><%= @jobsite.name %></h2>
+<% site_areas = [] %>
+<table>
+    <tr>
+        <th>Job No.</th>
+        <th>Job Name</th>
+        <th>Customer</th>
+        <th>-</th>
+        <%@site_areas.each do |area|%>
+        <th><%=area.code%></th>
+        <%end%>
+    </tr>
 
+    <% @jobs.each do |job| %>
+        <tr>
+            <td><%=job.job_number%></td>
+            <td><%=job.name%></td>
+            <td><%=job.customer%></td>
+        </tr>
+    <% end %>
+</table>

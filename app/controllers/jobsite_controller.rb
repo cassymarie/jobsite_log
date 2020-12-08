@@ -12,7 +12,8 @@ class JobsiteController < ApplicationController
     get '/jobsites/:id' do 
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
-        binding.pry
+        @site_areas = @jobsite.site_areas
+        # binding.pry
         erb :'jobsites/show'
     end
 
