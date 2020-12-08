@@ -1,4 +1,4 @@
 class JobArea < ActiveRecord::Base
-    belongs_to :jobs
-    belongs_to :areas
+    belongs_to :job
+    belongs_to :area
 end
