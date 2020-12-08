@@ -23,7 +23,7 @@ Generate the total hours worked for both: Individual employee and Each Job
 - [ ] Can create a Job that belongs to the Jobsite
 - [ ] Can setup areas for specific job
 - [ ] Can setup tasks for the jobsite (to be used on all areas)
-- [ ] User can add employees to the jobsite
+- [x] User can add employees to the jobsite
 - [ ] User can remove employees from jobsite - only if 0 hours worked that week
 - [ ] User can list and employee on a specific job/area, doing a specific task - for a certain length of time (hours)
 - [ ] User can view the list of total hours worked by individual/job

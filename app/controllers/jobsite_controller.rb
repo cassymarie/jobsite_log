@@ -13,7 +13,8 @@ class JobsiteController < ApplicationController
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas
-        # binding.pry
+        @employees = @jobsite.employees
+        
         erb :'jobsites/show'
     end
 
