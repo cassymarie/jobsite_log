@@ -17,6 +17,9 @@ class JobController < ApplicationController
     #     erb :'jobs/new'
     # end
 
+    get '/jobsite/:id/jobs/edit/:job_id' do
+    end
+
     get '/jobsite/:id/jobs/edit' do
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
@@ -30,6 +33,14 @@ class JobController < ApplicationController
         # binding.pry
         
     end
+
+    get '/jobsite/:id/jobs/delete/:job_id' do
+        @jobsite = Jobsite.find(params[:id])
+        @job = Job.find(params[:job_id])
+        erb :'jobs/delete'
+    end
+
+
 
     post '/jobsite/:id/jobs/new/area' do
         new_area = Area.create(:code => params[:area][:code].upcase, :name => params[:area][:code].capitalize)
@@ -55,24 +66,5 @@ class JobController < ApplicationController
         
     end
 
-    # get '/jobsite/:id/jobs/show' do
-    #     @jobsite = Jobsite.find(params[:id])
-    #     @jobs = @jobsite.jobs
-    #     @site_areas = @jobsite.site_areas
-    #     erb :'jobs/show'
-    # end
- 
 
-
-    patch '/jobsite/:id/jobs/edit' do
-        @jobsite = Jobsite.find(params[:id])
-        
-    end
-
-    helpers do
-        def current_jobsite(id)
-          Jobsite.find(id)
-        end
-      end
-      
 end

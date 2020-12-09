@@ -32,6 +32,8 @@
         <h3>Current Jobs <button><a href="/jobsite/<%=@jobsite.id%>/jobs/edit">..</a></button></h3> 
         <table>
             <tr>
+                <th></th>
+                <th></th>
                 <th>Job No.</th>
                 <th>Job Name</th>
                 <th>Customer</th>
@@ -42,6 +44,8 @@
             </tr>
             <% @jobs.each do |job| %>
             <tr>
+                <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
+                <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
                 <td><%=job.job_number%></td>
                 <td><%=job.name%></td>
                 <td><%=job.customer%></td>
