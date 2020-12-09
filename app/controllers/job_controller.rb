@@ -35,7 +35,7 @@ class JobController < ApplicationController
         @site_areas.sort_by {|k, v| [v, k]}
         @job_edit = params[:job]
 
-        binding.pry
+        # binding.pry
         erb :'jobs/new'
     end
 

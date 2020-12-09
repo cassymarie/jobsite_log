@@ -1,60 +1,68 @@
 <h2><%= @jobsite.name %> - Jobs</h2> 
-
-<form action="/jobsite/<%= @jobsite.id %>/job/new" method="POST">
-    <table>
-        <tr>
-            <th>Job No.</th>
-            <th>Job Name</th>
-            <th>Customer</th>
-        </tr>
-        <tr>
-            <td><input type="text" name="job[job_number]" value=<%=@job_edit.job_number unless @job_edit.nil?%> ></td> 
-            <td><input type="text" name="job[name]" value=<%=@job_edit.name unless @job_edit.nil?%>></td>
-            <td><input type="text" name="job[customer]" value=<%=@job_edit.customer unless @job_edit.nil?%>></td>
-            <td><input type="hidden" name="job[jobsite_id]" value=<%=@jobsite.id%> ></td>
-        </tr>
-    </table>
-    <br>
-
+    <div>
+        <h3>Add Job</h3>
         <div>
-        <h3>Areas</h3>
-        <% @site_areas.each do |area| %>
-        <%= area.code %><input type="checkbox" name="job[areas][]" id="area_<%= area.id %> " value="<%= area.id %>">
-        <% end %>
-        <% if @job_edit.nil? %>
-            <form action="/jobsite/<%= @jobsite.id %>/jobs/new/area" method="POST">
-                <label>Code: </label><input type="text" name="area[code]"  maxlength="3" required>
-                <label>Name: </label><input type="text" name="area[name]" required>
-                <input type="submit" value = "Add Area">
+            <form action="/jobsite/<%= @jobsite.id %>/job/new" method="POST">
+                <table>
+                    <tr>
+                        <th>Job No.</th>
+                        <th>Job Name</th>
+                        <th>Customer</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="job[job_number]" value=<%=@job_edit.job_number unless @job_edit.nil?%> ></td> 
+                        <td><input type="text" name="job[name]" value=<%=@job_edit.name unless @job_edit.nil?%>></td>
+                        <td><input type="text" name="job[customer]" value=<%=@job_edit.customer unless @job_edit.nil?%>></td>
+                        <td><input type="hidden" name="job[jobsite_id]" value=<%=@jobsite.id%> ></td>
+                    </tr>
+                </table>
+                        <% @site_areas.each do |area| %>
+                            <%= area.code %><input type="checkbox" name="job[areas][]" id="area_<%= area.id %> " value="<%= area.id %>">
+                        <% end %>
+                <input type="submit" value="Add Job">
             </form>
-        <% end%> 
+        </div>
+        <br>
+        <div>
+            <h3>Add Area</h3>
+            <form action="/jobsite/<%= @jobsite.id %>/jobs/new/area" method="POST">
+                <table>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="area[code]"  maxlength="3" required></td>
+                        <td><input type="text" name="area[name]" required></td>
+                        <td><input type="submit" value = "Add Area"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </div>
-    
-    <input type="submit" value="Add Job">
-</form>
-
-
 <br><br>
-<table>
-    <tr>
-        <th>Job No.</th>
-        <th>Job Name</th>
-        <th>Customer</th>
-        <th> Areas :</th>
-        <%@site_areas.each do |area|%>
-            <th><%=area.code%></th>
-        <%end%>
-    </tr>
-
-    <% @jobs.each do |job| %>
-        <tr>
-            <td><%=job.job_number%></td>
-            <td><%=job.name%></td>
-            <td><%=job.customer%></td>
-            <td></td>
-                <% @site_areas.each do |area| %>
-                    <td><%='X' if job.areas.include?(area)%></td>
-                <% end %>
-        </tr>
-    <% end %>
-</table>
+    <div>   
+        <h3>Current Jobs</h3> 
+        <table>
+            <tr>
+                <th>Job No.</th>
+                <th>Job Name</th>
+                <th>Customer</th>
+                <th> Areas :</th>
+                <%@site_areas.each do |area|%>
+                    <th><%=area.code%></th>
+                <%end%>
+            </tr>
+            <% @jobs.each do |job| %>
+            <tr>
+                <td><%=job.job_number%></td>
+                <td><%=job.name%></td>
+                <td><%=job.customer%></td>
+                <td></td>
+                    <% @site_areas.each do |area| %>
+                        <td><%='X' if job.areas.include?(area)%></td>
+                    <% end %>
+            </tr>
+            <% end %>
+        </table>
+    </div>
