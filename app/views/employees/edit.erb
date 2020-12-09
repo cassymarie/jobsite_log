@@ -1,0 +1,45 @@
+<div class="sitecrew">
+    <h2>Site Crew</h2>
+
+    <form class="edit_employee" action="/employee/new" method="POST">
+        <table>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Title</th>
+            </tr>
+            <tr>  
+                <td><input type="text" name="employee[last_name]"></td> 
+                <td><input type="text" name="employee[first_name]"></td>
+                <td>
+                    <select id="titles" name="title" required>
+                        <option value=""></option>
+                        <%Title.all.each do |t|%>                    
+                        <option value=<%=t.id%>><%=t.title%></option>
+                        <%end%>
+                    </select>     
+                </td>
+                <td><input type="submit" value="Add Employee"></td>
+                <input type="hidden" name="jobsite[id]" value=<%=@jobsite.id%>>
+            </tr>
+        </table> 
+    </form>
+<br>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Title</th>
+        </tr>
+    
+    <%@employees.each do |employee|%>
+        <tr>
+            <td><button id="delete_employee"><a href="/sitecrew/<%=employee.id%>/delete">X</a></button></td>
+            <td><%=employee.full_name%></td>
+            <td><%=Title.find(employee.title_id).title%></td>
+        </tr>
+    <%end%>
+    </table>
+<div>

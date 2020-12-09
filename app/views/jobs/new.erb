@@ -1,0 +1,38 @@
+<h2>Jobs</h2> 
+
+<form action="/jobsite/:id/job/new" method="POST">
+    <table>
+        <tr>
+            <th>Job No.</th>
+            <th>Job Name</th>
+            <th>Customer</th>
+            <th> Areas :</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="job[job_number]"></td> 
+            <td><input type="text" name="job[name]"></td>
+            <td><input type="text" name="job[customer]"></td>
+            <td><input type="hidden" name="job[jobsite_id]" value=<%=@jobsite.id%> ></td>
+        </tr>
+    </table>
+</form>
+
+<table>
+    <tr>
+        <th>Job No.</th>
+        <th>Job Name</th>
+        <th>Customer</th>
+        <th> Areas :</th>
+        <%@site_areas.each do |area|%>
+        <th><%=area.code%></th>
+        <%end%>
+    </tr>
+
+    <% @jobs.each do |job| %>
+        <tr>
+            <td><%=job.job_number%></td>
+            <td><%=job.name%></td>
+            <td><%=job.customer%></td>
+        </tr>
+    <% end %>
+</table>

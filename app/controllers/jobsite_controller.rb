@@ -9,7 +9,15 @@ class JobsiteController < ApplicationController
         erb :'jobsites/index'
     end
 
-    get '/jobsites/:id' do 
+    get '/jobsite/:id/jobs/new' do
+        @jobsite = Jobsite.find(params[:id])
+        @jobs = @jobsite.jobs
+        @site_areas = @jobsite.site_areas
+        erb :'jobs/new'
+    end
+
+
+    get '/jobsite/:id' do 
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas

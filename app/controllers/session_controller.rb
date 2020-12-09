@@ -24,5 +24,5 @@ class SessionController < ApplicationController
         session.clear
         redirect '/'
     end
-    
+
 end
