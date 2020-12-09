@@ -1,6 +1,8 @@
 <h1><%= @jobsite.name %></h1>
 
-<h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit">edit</a></button></h2> 
+<h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit"><%= @jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
+
+<% if @jobs.size > 0%>
 <table>
     <tr>
         <th>Job No.</th>
@@ -24,9 +26,10 @@
         </tr>
     <% end %>
 </table>
+<%end%>
 <br>
-<h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/edit'>Edit</a></button> <button><a href='/sitecrew/<%= @jobsite.id %>/new'>Add</a></button></h2>
-
+<h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/edit'><% @employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
+<% if @employees.size > 0%>
 <table>
     <tr>
         <th>Employee Name</th>
@@ -39,3 +42,4 @@
     </tr>
     <%end%>
 </table>
+<%end%>

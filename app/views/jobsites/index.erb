@@ -6,11 +6,11 @@
     <%end%>
 </ul>
 <br>
-<button>Add Jobsite</button>
 <br>
 <div>
-    <form action="/jobste/new" method="POST">
-        <input type="text" name="jobsite[name]">
+    <h3>Create New Jobsite</h3>
+    <form action="/jobsite/new" method="POST">
+        <label>Name: </label><input type="text" name="jobsite[name]">
         <input type="submit" value="+">
     </form>
 </div>

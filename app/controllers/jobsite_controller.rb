@@ -12,13 +12,19 @@ class JobsiteController < ApplicationController
 
     get '/jobsite/:id' do 
         @jobsite = Jobsite.find(params[:id])
-        @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas
         @employees = @jobsite.employees
+        @jobs = @jobsite.jobs
         
         erb :'jobsites/show'
     end
 
+    post '/jobsite/new' do
+        user = current_user
+        jobsite = Jobsite.create(params[:jobsite])
+        user.jobsites << jobsite
+        redirect '/jobsites'
+    end
 
 
 end
