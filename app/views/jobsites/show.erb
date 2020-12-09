@@ -28,7 +28,7 @@
 </table>
 <%end%>
 <br>
-<h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/edit'><% @employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
+<h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/edit'><%= @employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
 <% if @employees.size > 0%>
 <table>
     <tr>

@@ -15,7 +15,6 @@ class JobsiteController < ApplicationController
         @site_areas = @jobsite.site_areas
         @employees = @jobsite.employees
         @jobs = @jobsite.jobs
-        
         erb :'jobsites/show'
     end
 
