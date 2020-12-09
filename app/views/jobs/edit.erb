@@ -4,7 +4,7 @@
 <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button><br><br>
     <div>
         <h3>Edit Jobs</h3>
-        <form action="/jobsite/<%=@jobsite.id%>/jobs/edit" method="POST">
+        <form action="/jobsite/<%=@jobsite.id%>/jobs/edit/<%=@job.id%>" method="POST">
             <table>
                 <tr>
                     <th>Job No.</th>
@@ -15,22 +15,18 @@
                         <th><%=area.code%></th>
                     <%end%>
                 </tr>
-
-                <% @jobs.each do |job| %>
-                    <tr>
-                        <td><%=job.job_number%></td>
-                        <td><input type="text" name="job[name]" value=<%=job.name%>></td>
-                        <td><input type="text" name="job[customer]" value=<%=job.customer%>></td>
-                        <td></td>
-                            <% @site_areas.each do |area| %>
-                                <td><input type="checkbox" name="job[areas][]" id="area_<%= area.id %> " value="<%= area.id %>" <%='checked' if job.areas.include?(area)%>></td>
-                            <% end %>
-                        <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">X</a></button></td>
-                    </tr>
-                <% end %>
+                <tr>
+                    <td><%=@job.job_number%></td>
+                    <td><input type="text" name="job[name]" value="<%=@job.name%>"></td>
+                    <td><input type="text" name="job[customer]" value="<%=@job.customer%>"></td>
+                    <td></td>
+                        <% @site_areas.each do |area| %>
+                        <td><input type="checkbox" name="job[areas][]" id="area_<%= area.id %> " value="<%= area.id %>" <%='checked' if @job.areas.include?(area)%>></td>
+                        <% end %>
+                </tr>
             </table>
             <br>
-            <input type="submit" value="Update Jobs">
+            <input type="submit" value="Update Job">
         </form>
     </div>
 <br><br>

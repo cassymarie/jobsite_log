@@ -4,8 +4,6 @@ class JobController < ApplicationController
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas
-        #@job_edit = nil
-        # binding.pry
         erb :'jobs/new'
     end
 
@@ -18,20 +16,21 @@ class JobController < ApplicationController
     # end
 
     get '/jobsite/:id/jobs/edit/:job_id' do
+        @jobsite = Jobsite.find(params[:id])
+        @job = Job.find(params[:job_id])
+        @site_areas = @jobsite.site_areas
+        erb :'jobs/edit'
     end
 
     get '/jobsite/:id/jobs/edit' do
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
         if @jobs.size == 0 
-            #erb :'jobs/new'
             redirect "/jobsite/#{@jobsite.id}/jobs/new"
         else
             @site_areas = @jobsite.site_areas
             erb :'jobs/edit'
         end
-        # binding.pry
-        
     end
 
     get '/jobsite/:id/jobs/delete/:job_id' do
