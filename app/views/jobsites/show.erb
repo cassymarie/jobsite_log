@@ -1,6 +1,6 @@
 <h1><%= @jobsite.name %></h1>
 
-<h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit"><%= @jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
+<h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new"><%= @jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
 
 <% if @jobs.size > 0%>
 <table>
