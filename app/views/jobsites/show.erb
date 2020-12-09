@@ -1,12 +1,12 @@
 <h1><%= @jobsite.name %></h1>
 
-<h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add</a></button></h2> 
+<h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit">edit</a></button></h2> 
 <table>
     <tr>
         <th>Job No.</th>
         <th>Job Name</th>
         <th>Customer</th>
-        <th> Areas :</th>
+        <th>        </th>
         <%@site_areas.each do |area|%>
         <th><%=area.code%></th>
         <%end%>
@@ -17,6 +17,10 @@
             <td><%=job.job_number%></td>
             <td><%=job.name%></td>
             <td><%=job.customer%></td>
+            <td>        </td>
+            <% @site_areas.each do |area| %>
+                <td><%='X' if job.areas.include?(area)%></td>
+            <% end %>
         </tr>
     <% end %>
 </table>
