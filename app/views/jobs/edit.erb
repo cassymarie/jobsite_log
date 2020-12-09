@@ -1,0 +1,28 @@
+<h2>Jobs</h2> 
+
+# Display the current Jobs in the Jobsite
+<form action="/jobsite/<%=@jobsite.id%>/jobs/edit" method="POST">
+<table>
+    <tr>
+        <th>Job No.</th>
+        <th>Job Name</th>
+        <th>Customer</th>
+        <th> Areas :</th>
+        <%@site_areas.each do |area|%>
+            <th><%=area.code%></th>
+        <%end%>
+    </tr>
+
+    <% @jobs.each do |job| %>
+        <tr>
+            <td><input type="text" name="job[job_number]" value=<%=job.job_number%>></td>
+            <td><input type="text" name="job[name]" value=<%=job.name%>></td>
+            <td><input type="text" name="job[customer]" value=<%=job.customer%>></td>
+            <td></td>
+                <% @site_areas.each do |area| %>
+                    <td><input type="checkbox" name="job[areas][]" id="area_<%= area.id %> " value="<%= area.id %>" <%='checked' if job.areas.include?(area)%>></td>
+                <% end %>
+        </tr>
+    <% end %>
+</table>
+</form>

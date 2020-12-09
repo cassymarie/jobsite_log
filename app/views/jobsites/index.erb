@@ -1,7 +1,16 @@
 <h2>Welcome, <%=@user.first_name %></h2>
 <h3>Jobsite List...</h3>
 <ul>
-<% @jobsites.each do |jobsite|%>
-<li><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></li>
-<%end%>
+    <% @jobsites.each do |jobsite|%>
+    <li><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></li>
+    <%end%>
 </ul>
+<br>
+<button>Add Jobsite</button>
+<br>
+<div>
+    <form action="/jobste/new" method="POST">
+        <input type="text" name="jobsite[name]">
+        <input type="submit" value="+">
+    </form>
+</div>

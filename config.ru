@@ -7,5 +7,6 @@ end
 use SessionController
 use UserController
 use JobsiteController
+use JobController
 use EmployeesController
 run ApplicationController
