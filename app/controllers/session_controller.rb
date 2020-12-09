@@ -19,4 +19,10 @@ class SessionController < ApplicationController
             erb :'session/new'
         end
     end
+
+    get '/logout' do
+        session.clear
+        redirect '/'
+    end
+    
 end

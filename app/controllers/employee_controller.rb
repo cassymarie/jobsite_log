@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
 
-    get '/sitecrew/add' do
+    get '/sitecrew/:id/edit' do
 
     end
 

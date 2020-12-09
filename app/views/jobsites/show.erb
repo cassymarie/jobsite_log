@@ -7,7 +7,7 @@
         <th>Job No.</th>
         <th>Job Name</th>
         <th>Customer</th>
-        <th> Areas|</th>
+        <th> Areas :</th>
         <%@site_areas.each do |area|%>
         <th><%=area.code%></th>
         <%end%>
@@ -21,7 +21,7 @@
         </tr>
     <% end %>
 </table>
-
+<br>
 <h2>Site Crew</h2>
 <form class="edit_employee" action="/employee/new" method="POST">
     <table>
@@ -46,8 +46,11 @@
         </tr>
     </table> 
 </form>
+<br>
+
 <table>
     <tr>
+        <th></th>
         <th>Employee Name</th>
         <th>Title</th>
         <th><a href="/sitecrew/edit">add/remove</a></th>
@@ -55,6 +58,7 @@
     
     <%@employees.each do |employee|%>
     <tr>
+        <td><button id="edit_employee"><a href="/sitecrew/<%=employee.id%>/edit">...</a></button></td>
         <td><%=employee.full_name%></td>
         <td><%=Title.find(employee.title_id).title%></td>
     </tr>
