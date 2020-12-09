@@ -1,7 +1,6 @@
 <h1><a href="/jobsite/<%=@jobsite.id%>"><%= @jobsite.name %></a></h1>
 <h2> Jobs</h2> 
 
-<button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button><br><br>
     <div>
         <h3>Edit Jobs</h3>
         <form action="/jobsite/<%=@jobsite.id%>/jobs/edit/<%=@job.id%>" method="POST">
@@ -74,3 +73,7 @@
         </table>
     </div>
     <%end%>
+
+
+<br><button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button>
+<button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>

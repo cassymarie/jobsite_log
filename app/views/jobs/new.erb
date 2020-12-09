@@ -20,13 +20,12 @@
                         <% @site_areas.each do |area| %>
                             <%= area.code %><input type="checkbox" name="areas[]" id="area_<%= area.id %> " value="<%= area.id %>">
                         <% end %>
-                <input type="submit" value="Add Job">
+                <br><br><input type="submit" value="Add Job">
             </form>
         </div>
         <br>
-
     </div>
-<br><br>
+<br>
     <% if @jobs.size > 0 %>
     <div>   
         <h3>Current Jobs</h3> 
@@ -58,3 +57,5 @@
         </table>
     </div>
     <%end%>
+
+    <br><button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>
