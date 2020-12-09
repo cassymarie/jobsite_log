@@ -44,6 +44,14 @@ class JobController < ApplicationController
         erb :'jobs/new'
     end
 
+    post '/jobsite/:id/jobs/new' do
+        @jobsite = Jobsite.find(params[:id])
+        job = Job.create(params[:job])
+        @jobsite.jobs << job
+        
+        redirect "jobsite/#{@jobsite.id}/jobs/new"
+    end
+
     patch '/job/edit' do
         
     end
@@ -55,14 +63,7 @@ class JobController < ApplicationController
     #     erb :'jobs/show'
     # end
  
-    post '/jobsite/:id/jobs/new' do
-        @jobsite = Jobsite.find(params[:id])
-        job = Job.create(params[:job])
-        @jobsite.jobs << job
-        # @site_areas = @jobsite.site_areas
-        # binding.pry
-        redirect "jobsite/#{@jobsite.id}"
-    end
+
 
     patch '/jobsite/:id/jobs/edit' do
         @jobsite = Jobsite.find(params[:id])

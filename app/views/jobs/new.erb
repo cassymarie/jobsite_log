@@ -1,8 +1,9 @@
-<h2><%= @jobsite.name %> - Jobs</h2> 
+<h1><a href="/jobsite/<%=@jobsite.id%>"><%= @jobsite.name %></a></h1>
+<h2> Jobs</h2> 
     <div>
         <h3>Add Job</h3>
         <div>
-            <form action="/jobsite/<%= @jobsite.id %>/job/new" method="POST">
+            <form action="/jobsite/<%= @jobsite.id %>/jobs/new" method="POST">
                 <table>
                     <tr>
                         <th>Job No.</th>
@@ -26,6 +27,7 @@
 
     </div>
 <br><br>
+    <% if @jobs.size > 0 %>
     <div>   
         <h3>Current Jobs</h3> 
         <table>
@@ -51,3 +53,4 @@
             <% end %>
         </table>
     </div>
+    <%end%>
