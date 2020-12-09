@@ -13,6 +13,7 @@ class JobsiteController < ApplicationController
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas
+        binding.pry
         erb :'jobs/new'
     end
 

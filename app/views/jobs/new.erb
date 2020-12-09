@@ -17,6 +17,7 @@
     </table>
 </form>
 
+# Display the current Jobs in the Jobsite
 <table>
     <tr>
         <th>Job No.</th>
@@ -33,6 +34,10 @@
             <td><%=job.job_number%></td>
             <td><%=job.name%></td>
             <td><%=job.customer%></td>
+            <td></td>
+                <% @site_areas.each do |area| %>
+                    <td><input type="checkbox" name="job[areas][]" id="area_<%= area.id %> " value="<%= area.id %>" <%='checked' if job.areas.include?(area)%>></td>
+                <% end %>
         </tr>
     <% end %>
 </table>
