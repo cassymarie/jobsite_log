@@ -40,8 +40,7 @@ class JobController < ApplicationController
         @site_areas.sort_by {|k, v| [v, k]}
         @job_edit = params[:job]
 
-        # binding.pry
-        erb :'jobs/new'
+        erb :'jobs/edit'
     end
 
     post '/jobsite/:id/jobs/new' do

@@ -1,4 +1,7 @@
-<h2><%= @jobsite.name %> - Jobs</h2> 
+<h1><a href="/jobsite/<%=@jobsite.id%>"><%= @jobsite.name %></a></h1>
+<h2> Jobs</h2> 
+
+        <h3>Edit Job</h3>
 <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button><br><br>
     <div>
         <h3>Current Jobs</h3>
@@ -8,7 +11,7 @@
                     <th>Job No.</th>
                     <th>Job Name</th>
                     <th>Customer</th>
-                    <th>   Areas   </th>
+                    <th><%= 'Areas:  ' if @site_areas.size > 0%></th>
                     <%@site_areas.each do |area|%>
                         <th><%=area.code%></th>
                     <%end%>
@@ -34,16 +37,8 @@
     <div>
         <h3>Add Area</h3>
         <form action="/jobsite/<%= @jobsite.id %>/jobs/new/area" method="POST">
-            <table>
-                <tr>
-                    <th>Code</th>
-                    <th>Name</th>
-                </tr>
-                <tr>
-                    <td><input type="text" name="area[code]"  maxlength="3" required></td>                        <td><input type="text" name="area[name]" required></td>
-                </tr>
-            </table>
-            <br>
+            <label>Code: <input type="text" name="area[code]"  maxlength="3" required></label><br>
+            <label>Name: <input type="text" name="area[name]" required></label>
             <input type="submit" value = "Add Area">
         </form>
     </div>
