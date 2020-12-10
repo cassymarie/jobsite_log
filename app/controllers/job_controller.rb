@@ -41,6 +41,8 @@ class JobController < ApplicationController
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
 
         @job = Job.find(params[:job_id])
+        @jobs = @jobsite.jobs
+        @site_areas = @jobsite.site_areas
         erb :'jobs/delete', :layout => :'layouts/layout_jobs'
     end
 

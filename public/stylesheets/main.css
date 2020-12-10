@@ -21,7 +21,7 @@
 
   table {
     border: 1px, solid, black;
-    width: 98%;
+    width: fit-content;
   }
 
   td{

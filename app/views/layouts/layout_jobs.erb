@@ -10,13 +10,13 @@
   </header>
 
     <div class="wrapper">
-        <h2><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a></h2>
+        <h2><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a><button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button></h2>
 
         <%= yield %>
 
         <% if @jobs.size > 1 %>
             <div>   
-                <h3>Current Jobs</h3> 
+                <h2>Current Jobs</h2> 
                 <table>
                     <tr>
                         <th></th>
@@ -24,28 +24,27 @@
                         <th>Job No.</th>
                         <th>Job Name</th>
                         <th>Customer</th>
-                        <th> Areas :</th>
+                        <th></th>
                         <%@site_areas.each do |area|%>
                             <th><%=area.code%></th>
                         <%end%>
                     </tr>
                     <% @jobs.each do |job| %>
                     <tr>
-                        <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
-                        <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
-                        <td><%=job.job_number%></td>
-                        <td><%=job.name%></td>
-                        <td><%=job.customer%></td>
-                        <td></td>
+                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
+                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
+                        <td style="width:5%"><%=job.job_number%></td>
+                        <td style="width:20%"><%=job.name%></td>
+                        <td style="width:20%"><%=job.customer%></td>
+                        <td style="width:.25%" ></td>
                             <% @site_areas.each do |area| %>
-                                <td><%='X' if job.areas.include?(area)%></td>
+                                <td style="width:3.5%" ><%='X' if job.areas.include?(area)%></td>
                             <% end %>
                     </tr>
                     <% end %>
                 </table>
             </div>
         <%end%>
-        <button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>
     </div>
   </body>
 </html>

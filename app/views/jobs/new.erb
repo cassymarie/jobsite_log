@@ -1,22 +1,28 @@
-<div>
-<h3>Add Job</h3>
+<div id="form">
+<h2>Add Job</h2>
     <form action="/jobsite/<%= @jobsite.id %>/jobs/new" method="POST">
         <table>
             <tr>
-                <th>Job No.</th>
-                <th>Job Name</th>
-                <th>Customer</th>
+                <th style="width:10%">Job No.</th>
+                <th style="width:40%">Job Name</th>
+                <th style="width:40%">Customer</th>
             </tr>
             <tr>
-                <td><input type="text" name="job[job_number]" value=<%=@job_edit.job_number unless @job_edit.nil?%> ></td> 
-                <td><input type="text" name="job[name]" value=<%=@job_edit.name unless @job_edit.nil?%>></td>
-                <td><input type="text" name="job[customer]" value=<%=@job_edit.customer unless @job_edit.nil?%>></td>
-                <td><input type="hidden" name="jobsite_id" value=<%=@jobsite.id%> ></td>
+                <td><input style="width:90%"  type="text" name="job[job_number]" value=<%=@job_edit.job_number unless @job_edit.nil?%> ></td> 
+                <td><input style="width:95%" type="text" name="job[name]"  value=<%=@job_edit.name unless @job_edit.nil?%>></td>
+                <td><input style="width:95%" type="text" name="job[customer]" value=<%=@job_edit.customer unless @job_edit.nil?%>></td>
+                <input type="hidden" name="jobsite_id" value=<%=@jobsite.id%> >
             </tr>
         </table>
+        <br>
+        <section style="text-align:left;">
+        <h4>Select Areas</h4>
         <% @site_areas.each do |area| %>
-            <%= area.code %><input type="checkbox" name="areas[]" id="area_<%= area.id %> " value="<%= area.id %>">            
+            <input type="checkbox" name="areas[]" id="area_<%= area.id %> " value="<%= area.id %>"><label><%= area.code %></label>          
         <% end %>
-        <br><br><input type="submit" value="Add Job">
+        <br>
+        <br>
+        <input type="submit" value="Add Job" style="text-align:right;">
+        </section>
     </form>
 </div>
