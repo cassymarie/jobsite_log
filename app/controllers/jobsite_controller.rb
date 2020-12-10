@@ -3,7 +3,6 @@ class JobsiteController < ApplicationController
     get '/jobsites' do
         
         redirect '/error' if !logged_in?
-        binding.pry
         @user = current_user
         
         user_sites = []
@@ -13,7 +12,10 @@ class JobsiteController < ApplicationController
     end
 
     get '/jobsite/:id' do 
+        redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
+        redirect '/jobsites' unless @jobsite.users.include?(current_user)
+        
         @site_areas = @jobsite.site_areas
         @employees = @jobsite.employees
         @jobs = @jobsite.jobs

@@ -1,13 +1,19 @@
 class EmployeesController < ApplicationController
     
     get '/sitecrew/:id/new' do
+        redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
+        redirect '/jobsites' unless @jobsite.users.include?(current_user)
+
         @employees = @jobsite.employees
         erb :'employees/new', :layout => :'layouts/layout_sitecrew'
     end
 
     get '/sitecrew/:id/edit/:employee_id' do
+        redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
+        redirect '/jobsites' unless @jobsite.users.include?(current_user)
+
         @employee = Employee.find(params[:employee_id])
         @employees = @jobsite.employees
         erb :'employees/edit', :layout => :'layouts/layout_sitecrew'
