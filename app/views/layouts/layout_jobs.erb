@@ -5,12 +5,18 @@
   </head>
   <body>
   <header>
-        <a href="/jobsites">Jobsites</a>
-        <a href="/logout">Log Out</a>
+        <nav style="float:left;">
+            <a href="/jobsites">Jobsites</a>
+            <a href="/logout">Log Out</a>
+        </nav>
+        <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
   </header>
 
     <div class="wrapper">
-        <h2><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a><button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button></h2>
+        <h2>
+        <a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a>
+        <button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button>
+        </h2>
 
         <%= yield %>
 
