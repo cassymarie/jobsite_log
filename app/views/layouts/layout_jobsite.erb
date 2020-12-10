@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+  <head>
+    <title>Jobsite Log - Main</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <header>
+        <nav style="float:left;">
+            <a href="/jobsites">Jobsites</a>
+            <a href="/logout">Log Out</a>
+        </nav>
+        <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
+    </header>
+    <br><br>
+    <div class="wrapper">
+        <%= yield %>
+    </div>
+
+  </body>
+</html>
