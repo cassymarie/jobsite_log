@@ -47,6 +47,9 @@
     align-items: center;
   }
 
+  /* #my_jobsites {
+    display: inline-block;
+  } */
 
   #jobsite_card {
     width: 25%;

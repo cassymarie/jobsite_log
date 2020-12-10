@@ -1,17 +1,16 @@
-<h2 >Welcome, <%=@user.first_name %></h2>
-<h3>Jobsite List...</h3>
-<ul>
-    <% @jobsites.each do |jobsite|%>
-    <li><div id="jobsite_card">
-        <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
-        <p><%= jobsite.jobs.count %> Current Jobs </p>
-        <p><%= jobsite.employees.count %> Site Employees </p>
-    </div></li>
-    <%end%>
-</ul>
+<h2 >My Current Jobsites</h2>
+    <ul style="display:inline;">
+        <% @jobsites.each do |jobsite|%>
+        <li><div id="jobsite_card">
+            <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
+            <p><%= jobsite.jobs.count %> Current Jobs </p>
+            <p><%= jobsite.employees.count %> Site Employees </p>
+        </div></li>
+        <%end%>
+    </ul>
 <br>
 <br>
-<div>
+<div id="form">
     <h3>Create New Jobsite</h3>
     <form action="/jobsite/new" method="POST">
         <label>Name: </label><input type="text" name="jobsite[name]">
