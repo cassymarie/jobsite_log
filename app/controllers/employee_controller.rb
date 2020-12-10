@@ -21,6 +21,6 @@ class EmployeesController < ApplicationController
         )
         jobsite = Jobsite.find(params[:jobsite][:id].to_i)
         employee.jobsites << jobsite
-        redirect "/jobsites/#{jobsite.id}"
+        redirect "/jobsite/#{jobsite.id}"
     end
 end

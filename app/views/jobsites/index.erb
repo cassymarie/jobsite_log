@@ -1,8 +1,12 @@
-<h2>Welcome, <%=@user.first_name %></h2>
+<h2 >Welcome, <%=@user.first_name %></h2>
 <h3>Jobsite List...</h3>
 <ul>
     <% @jobsites.each do |jobsite|%>
-    <li><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></li>
+    <li><div id="jobsite_card">
+        <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
+        <p><%= jobsite.jobs.count %> Current Jobs </p>
+        <p><%= jobsite.employees.count %> Site Employees </p>
+    </div></li>
     <%end%>
 </ul>
 <br>

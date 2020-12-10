@@ -20,8 +20,16 @@
   }
 
   table {
-    width: 90%;
-    border-color: 1px, solid, black;
+    border: 1px, solid, black;
+  }
+
+  td{
+    border: 1px, solid, black;
+    text-align: left;
+  }
+
+  th {
+    text-align: left;
   }
 
   div {
@@ -29,6 +37,14 @@
     background-color: rgb(236, 228, 234);
     border-color: 1px, solid, black;
     padding: 10px;
+  }
+
+  #jobsite_card {
+    width: 25%;
+    background: rgb(221, 221, 223);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.3);
+    padding: 10px;
+    margin: 10px;
   }
 
   .wrapper {
