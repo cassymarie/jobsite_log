@@ -4,7 +4,7 @@
     <form action="/task/delete/<%=@task.id%>" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
 
-               <h3 style="color:red;"> <%=@task.code%> - <%=@task.name%> </h3>
+               <h3 style="color:red;"> [<%=@task.code%>]  <%=@task.name%> </h3>
 
         <input type="hidden" name="task_id" value=<%=@task.id%>> 
         <input type="hidden" name="jobsite_id" value=<%=@jobsite.id%>>
