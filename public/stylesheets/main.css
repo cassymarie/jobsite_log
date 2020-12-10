@@ -39,6 +39,9 @@
     padding: 10px;
   }
 
+  .content {
+    text-align: center;
+  }
   #jobsite_card {
     width: 25%;
     background: rgb(221, 221, 223);
@@ -46,6 +49,8 @@
     padding: 10px;
     margin: 10px;
   }
+
+
 
   .wrapper {
     background: #fff;
@@ -55,6 +60,7 @@
     margin: 16px auto;
     max-width: 90%;
     max-height: 90%;
+    align-items: center;
     padding: 2.25%; /* 18px / 800px */
     /* width: 95%; */
   }

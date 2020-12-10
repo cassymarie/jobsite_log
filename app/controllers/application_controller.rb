@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :'session/new'
+    erb :'session/new', :layout => :'layouts/layout_signin'
   end
 
   helpers do
