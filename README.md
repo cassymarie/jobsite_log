@@ -22,15 +22,15 @@ Generate the total hours worked for both: Individual employee and Each Job
 - [x] Can create a new Jobsite
 - [x] Can create a Job that belongs to the Jobsite
 - [x] Can setup areas for specific job
-- [ ] Can setup tasks for the jobsite (to be used on all areas)
+- [x] Can setup tasks for the jobsite (to be used on all areas)
 - [x] User can add employees to the jobsite
-- [ ] User can remove employees from jobsite - only if 0 hours worked that week
-- [ ] User can list and employee on a specific job/area, doing a specific task - for a certain length of time (hours)
-- [ ] User can view the list of total hours worked by individual/job
 
 ### Stretch Goals
 
 - [ ] Can create a daily report by employee title
+- [ ] User can remove employees from jobsite - only if 0 hours worked that week
+- [ ] User can list and employee on a specific job/area, doing a specific task - for a certain length of time (hours)
+- [ ] User can view the list of total hours worked by individual/job
 - [ ] Create custom validations
 
 ## Specifications for Assessment
@@ -41,15 +41,15 @@ Generate the total hours worked for both: Individual employee and Each Job
 - [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
 - [x] Include user accounts with unique login attribute (username or email)
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [ ] Ensure that users can't modify content created by other users
-- [ ] Include user input validations
-- [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [x] Ensure that users can't modify content created by other users
+- [x] Include user input validations
+- [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
 - [ ] You don't include changes in a commit that aren't related to the commit message
