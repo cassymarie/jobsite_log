@@ -1,20 +1,21 @@
-<h1>Welcome</h1>
 <div class="content">
-    <h2>Please fill in fields to Sign-up</h2>
-    <form action="/signup" method="POST">
-        <ul>
-        <li><label>First Name</label><input type="text" name="user[first_name]" value="<%=@user.first_name unless @user.nil?%>" required></li>
-        <li><label>Last Name</label><input type="text" name="user[last_name]" value="<%=@user.last_name unless @user.nil?%>" required></li>
-        <li><label>Email</label><input type="text" name="user[email]" value="<%=@user.email unless @user.nil?%>" required> <label style="color:red;"><label style="color:red;"><%= @error unless @error.blank? %></label></li>
-        <li><label>Password</label><input type="password" name="user[password]" required></li>
-        </ul>
-        <input type="submit" value="Create User"> 
-    </form>
-    <br>
-    <form  action="/login/existing" method="get">
-        <input type="hidden" name="email" value="<%=@user.email unless @user.nil?%>">
-        <input type="submit" value="Log In">
-    </form>
+<h1>Welcome</h1>
+    <div id="form">
+        <h2>Please fill in fields to Sign-up</h2>
+        <form action="/signup" method="POST">
+            <ul>
+            <li><label>First Name</label><input type="text" name="user[first_name]" value="<%=@user.first_name unless @user.nil?%>" required></li><br>
+            <li><label>Last Name</label><input type="text" name="user[last_name]" value="<%=@user.last_name unless @user.nil?%>" required></li><br>
+            <li><label>Email</label><input type="text" name="user[email]" value="<%=@user.email unless @user.nil?%>" required> <label style="color:red;"><label style="color:red;"><%= @error unless @error.blank? %></label></li><br>
+            <li><label>Password</label><input type="password" name="user[password]" required></li><br>
+            </ul>
+            <input type="submit" value="Signup"> 
+        </form>
+        <form  action="/login/existing" method="get">
+            <input type="hidden" name="email" value="<%=@user.email unless @user.nil?%>">
+            <input type="submit" value="Log In">
+        </form>
+    </div>
 </div>
 
 
