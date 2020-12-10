@@ -1,17 +1,16 @@
 class EmployeesController < ApplicationController
-
     
     get '/sitecrew/:id/new' do
         @jobsite = Jobsite.find(params[:id])
         @employees = @jobsite.employees
-        erb :'employees/new'
+        erb :'employees/new', :layout => :'layouts/layout_sitecrew'
     end
 
     get '/sitecrew/:id/edit/:employee_id' do
         @jobsite = Jobsite.find(params[:id])
         @employee = Employee.find(params[:employee_id])
         @employees = @jobsite.employees
-        erb :'employees/edit'
+        erb :'employees/edit', :layout => :'layouts/layout_sitecrew'
     end
 
     post '/employee/new' do

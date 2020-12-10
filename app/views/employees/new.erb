@@ -1,5 +1,3 @@
-<h1><a href="/jobsite/<%=@jobsite.id%>"><%= @jobsite.name %></a></h1>
-<h2> Sitecrew</h2> 
     <div id = "sitecrew">
         <h3>Add Employee</h3>
         <form class="edit_employee" action="/employee/new" method="POST">
@@ -26,27 +24,3 @@
             </table> 
         </form>
     </div>
-<br>
-    <div>
-     <h3>Current Crew</h3> 
-    
-    <table>
-        <tr>
-            <th></th>
-            <th></th>
-            <th>Name</th>
-            <th>Title</th>
-        </tr>
-    
-    <%@employees.each do |employee|%>
-        <tr>
-            <td><button id="delete_employee"><a href="/sitecrew/<%=@jobsite.id%>/delete/<%=employee.id%>">X</a></button></td>
-            <td><button id="edit_employee"><a href="/sitecrew/<%=@jobsite.id%>/edit/<%=employee.id%>">...</a></button></td>
-            <td width="150px;"><%=employee.full_name%></td>
-            <td><%=Title.find(employee.title_id).title%></td>
-        </tr>
-    <%end%>
-    </table>
-<div> 
-
-<br><button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>

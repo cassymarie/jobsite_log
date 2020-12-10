@@ -5,54 +5,47 @@
   </head>
   <body>
   <header>
-      <h2 style="float:center;">  <%=@jobsite.name%> </h2>
         <a href="/jobsites">Jobsites</a>
         <a href="/logout">Log Out</a>
   </header>
 
-<div class="wrapper">
-    <h2><a href="/jobsite/<%=@jobsite.id%>">Jobs</a></h2> 
-
-    
+    <div class="wrapper">
+        <h2><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a></h2>
 
         <%= yield %>
 
-    
-
-    <% if @jobs.size > 1 %>
-    <div>   
-        <h3>Current Jobs</h3> 
-        <table>
-            <tr>
-                <th></th>
-                <th></th>
-                <th>Job No.</th>
-                <th>Job Name</th>
-                <th>Customer</th>
-                <th> Areas :</th>
-                <%@site_areas.each do |area|%>
-                    <th><%=area.code%></th>
-                <%end%>
-            </tr>
-            <% @jobs.each do |job| %>
-            <tr>
-                <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
-                <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
-                <td><%=job.job_number%></td>
-                <td><%=job.name%></td>
-                <td><%=job.customer%></td>
-                <td></td>
-                    <% @site_areas.each do |area| %>
-                        <td><%='X' if job.areas.include?(area)%></td>
+        <% if @jobs.size > 1 %>
+            <div>   
+                <h3>Current Jobs</h3> 
+                <table>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Job No.</th>
+                        <th>Job Name</th>
+                        <th>Customer</th>
+                        <th> Areas :</th>
+                        <%@site_areas.each do |area|%>
+                            <th><%=area.code%></th>
+                        <%end%>
+                    </tr>
+                    <% @jobs.each do |job| %>
+                    <tr>
+                        <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
+                        <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
+                        <td><%=job.job_number%></td>
+                        <td><%=job.name%></td>
+                        <td><%=job.customer%></td>
+                        <td></td>
+                            <% @site_areas.each do |area| %>
+                                <td><%='X' if job.areas.include?(area)%></td>
+                            <% end %>
+                    </tr>
                     <% end %>
-            </tr>
-            <% end %>
-        </table>
+                </table>
+            </div>
+        <%end%>
+        <button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>
     </div>
-    <%end%>
-</div>
-
-<br><button><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button>
-<button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>
   </body>
 </html>

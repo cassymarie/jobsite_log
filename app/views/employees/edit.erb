@@ -1,6 +1,4 @@
-<h1><a href="/jobsite/<%=@jobsite.id%>"><%= @jobsite.name %></a></h1>
-<h2> Sitecrew</h2> 
-    <div>
+    <div  id = "sitecrew">
     <h3>Edit Employee</h3>
     <form class="edit_employee" action="/employee/edit/<%=@employee.id%>" method="post">
         <%# <input id="hidden" type="hidden" name="_method" value="patch"> %>
@@ -26,23 +24,4 @@
             </tr>
         </table> 
     </form>
-<br>
-
-    <table>
-        <tr>
-            <th></th>
-            <th></th>
-            <th>Name</th>
-            <th>Title</th>
-        </tr>
-    
-    <%@employees.each do |employee|%>
-        <tr>
-            <td><button id="delete_employee"><a href="/sitecrew/<%=@jobsite.id%>/delete/<%=employee.id%>">X</a></button></td>
-            <td><button id="edit_employee"><a href="/sitecrew/<%=@jobsite.id%>/edit/<%=employee.id%>">...</a></button></td>
-            <td><%=employee.full_name%></td>
-            <td><%=Title.find(employee.title_id).title%></td>
-        </tr>
-    <%end%>
-    </table>
-<div>
+    </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+  <head>
+    <title>Jobsite Log</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+  <header>
+        <a href="/jobsites">Jobsites</a>
+        <a href="/logout">Log Out</a>
+  </header>
+
+    <div class="wrapper">
+        <h2><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a></h2> 
+
+        <%= yield %>
+
+        <% if @employees.size > 1 %>
+            <div>   
+                <h3>Site Employees</h3> 
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Title</th>
+                        </tr>
+                    
+                    <%@employees.each do |employee|%>
+                        <tr>
+                            <td><button id="delete_employee"><a href="/sitecrew/<%=@jobsite.id%>/delete/<%=employee.id%>">X</a></button></td>
+                            <td><button id="edit_employee"><a href="/sitecrew/<%=@jobsite.id%>/edit/<%=employee.id%>">...</a></button></td>
+                            <td><%=employee.full_name%></td>
+                            <td><%=Title.find(employee.title_id).title%></td>
+                        </tr>
+                    <%end%>
+                    </table>
+            </div>
+        <%end%>
+        <button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>
+    </div>
+  </body>
+</html>
