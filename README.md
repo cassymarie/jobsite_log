@@ -19,9 +19,9 @@ Generate the total hours worked for both: Individual employee and Each Job
 
 - [x] User Signup
 - [x] User Login - has access to only individual jobsite
-- [ ] Can create a new Jobsite
-- [ ] Can create a Job that belongs to the Jobsite
-- [ ] Can setup areas for specific job
+- [x] Can create a new Jobsite
+- [x] Can create a Job that belongs to the Jobsite
+- [x] Can setup areas for specific job
 - [ ] Can setup tasks for the jobsite (to be used on all areas)
 - [x] User can add employees to the jobsite
 - [ ] User can remove employees from jobsite - only if 0 hours worked that week

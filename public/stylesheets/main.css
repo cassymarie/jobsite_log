@@ -19,6 +19,18 @@
     line-height: 18px;
   }
 
+  table {
+    width: 90%;
+    border-color: 1px, solid, black;
+  }
+
+  div {
+    width: 80%;
+    background-color: rgb(236, 228, 234);
+    border-color: 1px, solid, black;
+    padding: 10px;
+  }
+
   .wrapper {
     background: #fff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -55,21 +67,6 @@
   .main {
     overflow: hidden;
   }
-
-  /* .content {
-    float: left;
-    width: 60%; /* 480px / 800px */
-  } */
-
-  /* .branding {
-    clear: both;
-  } */
-/*   
-  footer.branding {
-    border-top: 2px solid #ccc;
-    margin-top: 20px;
-    padding-top: 20px;
-  } */
 }
 
 @media screen and (max-width: 960px) {
@@ -96,3 +93,5 @@
     line-height: 24px;
   }
 }
+
+
