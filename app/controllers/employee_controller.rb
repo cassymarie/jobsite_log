@@ -7,8 +7,9 @@ class EmployeesController < ApplicationController
         erb :'employees/new'
     end
 
-    get '/sitecrew/:id/edit' do
+    get '/sitecrew/:id/edit/:employee_id' do
         @jobsite = Jobsite.find(params[:id])
+        @employee = Employee.find(params[:employee_id])
         @employees = @jobsite.employees
         erb :'employees/edit'
     end
@@ -23,4 +24,16 @@ class EmployeesController < ApplicationController
         employee.jobsites << jobsite
         redirect "/jobsite/#{jobsite.id}"
     end
+
+    post '/employee/edit/:id' do
+        #
+        jobsite = params[:jobsite][:id]
+        employee = Employee.find(params[:id])
+        new_info = params[:employee]
+        # binding.pry
+        new_info[:title_id] = new_info[:title_id].to_i
+        employee.update(new_info)
+        redirect "/sitecrew/#{jobsite}/new"
+    end
+
 end
