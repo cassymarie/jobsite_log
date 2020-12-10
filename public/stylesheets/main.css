@@ -30,39 +30,38 @@
 
   th {
     text-align: left;
+    font-size: 14px;
+    color: darkslateblue;
   }
 
   div {
-    width: 80%;
-    background-color: rgb(236, 228, 234);
-    border-color: 1px, solid, black;
+    width: 90%;
+    background-color: rgb(225, 230, 236);
+    border: 2px, solid, black;
     padding: 10px;
+    margin: auto;
+    text-align:center;
+    align-items: center;
   }
 
-  .content {
-    text-align: center;
-  }
+
   #jobsite_card {
     width: 25%;
     background: rgb(221, 221, 223);
-    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.3);
     padding: 10px;
     margin: 10px;
   }
 
-
-
   .wrapper {
     background: #fff;
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 90%;
     max-height: 90%;
     align-items: center;
-    padding: 2.25%; /* 18px / 800px */
-    /* width: 95%; */
+    padding: auto;
+    text-align: center;
+    /*padding: 2.25%;  18px / 800px */
   }
 
   h1 {
@@ -91,7 +90,7 @@
   }
 }
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
   .wrapper {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
@@ -114,6 +113,6 @@
     font-size: 18px;
     line-height: 24px;
   }
-}
+} */
 
 
