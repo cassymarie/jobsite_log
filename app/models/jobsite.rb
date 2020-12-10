@@ -3,6 +3,7 @@ class Jobsite < ActiveRecord::Base
     has_many :users, through: :user_jobsites
 
     has_many :jobs
+    has_many :tasks
 
     has_many :jobsite_employees
     has_many :employees, through: :jobsite_employees

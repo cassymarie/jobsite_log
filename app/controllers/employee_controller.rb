@@ -26,11 +26,9 @@ class EmployeesController < ApplicationController
     end
 
     post '/employee/edit/:id' do
-        #
         jobsite = params[:jobsite][:id]
         employee = Employee.find(params[:id])
         new_info = params[:employee]
-        # binding.pry
         new_info[:title_id] = new_info[:title_id].to_i
         employee.update(new_info)
         redirect "/sitecrew/#{jobsite}/new"
