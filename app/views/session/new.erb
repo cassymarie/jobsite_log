@@ -2,9 +2,9 @@
 <div class="content">
     <h2>Please log-in to Continue</h2>
     <form action="/login" method="POST">
-        <label>Email: </label><input type="text" name="user[:email]"><br><br>
-        <label>Password:</label><input type="password" name="user[:password]"><br><br>
+        <label>Email: </label><input type="text" name="user[:email]" required><br><br>
+        <label>Password:</label><input type="password" name="user[:password]" required><br><br>
         <input type="submit" value="Log-In User"> <label style="color:red;"><%= @error unless @error.blank? %></label>
     </form>
-    <br><button><a href="/signup">New User Sign Up</a></button>
+    <br><button><a href="/signup">New User</a></button>
 </div>
