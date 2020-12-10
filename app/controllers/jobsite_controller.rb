@@ -2,9 +2,7 @@ class JobsiteController < ApplicationController
     
     get '/jobsites' do
         @user = current_user
-        @edit_form = false
         user_sites = []
-        
         UserJobsite.all.each {|site|user_sites << site.jobsite_id if site.user_id == @user.id}
         @jobsites = Jobsite.all.select {|site| user_sites.include?(site.id)}
         erb :'jobsites/index'
@@ -15,6 +13,7 @@ class JobsiteController < ApplicationController
         @site_areas = @jobsite.site_areas
         @employees = @jobsite.employees
         @jobs = @jobsite.jobs
+        @tasks = @jobsite.tasks
         erb :'jobsites/show'
     end
 

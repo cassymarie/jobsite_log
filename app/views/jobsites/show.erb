@@ -43,3 +43,13 @@
     <%end%>
 </table>
 <%end%>
+<br>
+
+<div>
+<h2>Tasks </h2>
+<ul>
+    <% @tasks.each do |task| %>
+    <li>[<%=task.code%>] <%=task.name%></li>
+    <%end%>
+</ul>
+</div>
