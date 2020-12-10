@@ -19,6 +19,16 @@ class EmployeesController < ApplicationController
         erb :'employees/edit', :layout => :'layouts/layout_sitecrew'
     end
 
+    get '/sitecrew/:id/delete/:employee_id' do
+        redirect '/error' if !logged_in?
+        @jobsite = Jobsite.find(params[:id])
+        redirect '/jobsites' unless @jobsite.users.include?(current_user)
+
+        @employee = Employee.find(params[:employee_id])
+        @employees = @jobsite.employees
+        erb :'employees/delete', :layout => :'layouts/layout_sitecrew'
+    end
+
     post '/employee/new' do
         employee = Employee.create(
             :first_name => params[:employee][:first_name],

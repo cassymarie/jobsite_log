@@ -1,15 +1,15 @@
 <div  id = "form">
-    <h2>Edit Task</h2>
-    <form action="/task/edit" method="post">
-        <input id="hidden" type="hidden" name="_method" value="patch">
+    <h2>Add Task</h2>
+    <form action="/task/new" method="post">
+        <%# <input id="hidden" type="hidden" name="_method" value="patch"> %>
         <table>
             <tr>
                 <th>Code</th>
                 <th>Description</th>
             </tr>
             <tr>  
-                <td><input type="input" name="task[code]" value=<%=@task.code%>></td> 
-                <td><input type="input" name="task[name]" value=<%=@task.name%>></td>
+                <td><input type="text" name="task[code]"></td> 
+                <td><input type="text" name="task[name]"></td>
             </tr>
         </table>
         <input type="hidden" name="task[jobsite_id]" value=<%=@jobsite.id%>>

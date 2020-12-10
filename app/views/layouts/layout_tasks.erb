@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <head>
+    <title>Jobsite Log - Tasks</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+  <header>
+        <nav style="float:left;">
+            <a href="/jobsites">Jobsites</a>
+            <a href="/logout">Log Out</a>
+        </nav>
+        <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
+  </header>
+    <br><br>
+        <div class="wrapper">
+            <h2>
+            <a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a>
+            <button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button>
+            </h2>
+
+            <%= yield %>
+
+            <% if @tasks.size > 0 %>
+            <div>   
+                <h2>Jobsite Tasks</h2> 
+                <table>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Code</th>
+                        <th>Description</th>
+                    </tr>
+                    <% @tasks.each do |task| %>
+                    <tr>
+                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/task/delete/<%= task.id %>">X</a></button></td>
+                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/task/edit/<%= task.id %>">...</a></button></td>
+                        <td style="width:5%"><%=task.code%></td>
+                        <td style="width:20%"><%=task.name%></td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+        <%end%>
+
+        </div>
+
+    </body>
+</html>
