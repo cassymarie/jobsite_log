@@ -8,7 +8,6 @@ class UserController < ApplicationController
     #Create a new user (if valid)
     post '/signup' do
         @user = User.new(params[:user])
-        binding.pry
         if @user.save
             session[:user_id] = @user.id
             redirect to '/jobsites'
