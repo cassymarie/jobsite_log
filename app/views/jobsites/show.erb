@@ -46,7 +46,7 @@
 <br>
 
 <div>
-<h2>Tasks </h2>
+<h2>Tasks <button><a href='/jobsite/<%= @jobsite.id %>/tasks'></button></h2>
 <ul>
     <% @tasks.each do |task| %>
     <li>[<%=task.code%>] <%=task.name%></li>

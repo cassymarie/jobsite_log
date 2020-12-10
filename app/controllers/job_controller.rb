@@ -4,7 +4,7 @@ class JobController < ApplicationController
         @jobsite = Jobsite.find(params[:id])
         @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas
-        erb :'jobs/new'
+        erb :'jobs/new', :layout => :'layouts/layout_jobs'
     end
 
     get '/jobsite/:id/jobs/edit/:job_id' do
@@ -12,7 +12,7 @@ class JobController < ApplicationController
         @job = Job.find(params[:job_id])
         @jobs = @jobsite.jobs
         @site_areas = @jobsite.site_areas
-        erb :'jobs/edit'
+        erb :'jobs/edit', :layout => :'layouts/layout_jobs'
     end
 
     get '/jobsite/:id/jobs/edit' do
@@ -22,14 +22,14 @@ class JobController < ApplicationController
             redirect "/jobsite/#{@jobsite.id}/jobs/new"
         else
             @site_areas = @jobsite.site_areas
-            erb :'jobs/edit'
+            erb :'jobs/edit', :layout => :'layouts/layout_jobs'
         end
     end
 
     get '/jobsite/:id/jobs/delete/:job_id' do
         @jobsite = Jobsite.find(params[:id])
         @job = Job.find(params[:job_id])
-        erb :'jobs/delete'
+        erb :'jobs/delete', :layout => :'layouts/layout_jobs'
     end
 
     post '/jobsite/:id/jobs/new/area' do
@@ -41,7 +41,8 @@ class JobController < ApplicationController
         @site_areas = @jobsite.site_areas
         new_area.name = params[:area][:name].capitalize
         new_area.save
-        erb :'jobs/edit'
+        redirect "/jobsite/#{@jobsite.id}/jobs/edit/#{@job.id}"
+        # erb :'jobs/edit', :layout => :'layouts/layout_jobs'
     end
 
     post '/jobsite/:id/jobs/new' do

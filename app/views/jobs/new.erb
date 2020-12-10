@@ -1,61 +1,22 @@
-<h1><a href="/jobsite/<%=@jobsite.id%>"><%= @jobsite.name %></a></h1>
-<h2> Jobs</h2> 
-    <div>
-        <h3>Add Job</h3>
-        <div>
-            <form action="/jobsite/<%= @jobsite.id %>/jobs/new" method="POST">
-                <table>
-                    <tr>
-                        <th>Job No.</th>
-                        <th>Job Name</th>
-                        <th>Customer</th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="job[job_number]" value=<%=@job_edit.job_number unless @job_edit.nil?%> ></td> 
-                        <td><input type="text" name="job[name]" value=<%=@job_edit.name unless @job_edit.nil?%>></td>
-                        <td><input type="text" name="job[customer]" value=<%=@job_edit.customer unless @job_edit.nil?%>></td>
-                        <td><input type="hidden" name="jobsite_id" value=<%=@jobsite.id%> ></td>
-                    </tr>
-                </table>
-                        <% @site_areas.each do |area| %>
-                            <%= area.code %><input type="checkbox" name="areas[]" id="area_<%= area.id %> " value="<%= area.id %>">
-                        <% end %>
-                <br><br><input type="submit" value="Add Job">
-            </form>
-        </div>
-        <br>
-    </div>
-<br>
-    <% if @jobs.size > 0 %>
-    <div>   
-        <h3>Current Jobs</h3> 
+<div>
+<h3>Add Job</h3>
+    <form action="/jobsite/<%= @jobsite.id %>/jobs/new" method="POST">
         <table>
             <tr>
-                <th></th>
-                <th></th>
                 <th>Job No.</th>
                 <th>Job Name</th>
                 <th>Customer</th>
-                <th> Areas :</th>
-                <%@site_areas.each do |area|%>
-                    <th><%=area.code%></th>
-                <%end%>
             </tr>
-            <% @jobs.each do |job| %>
             <tr>
-                <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
-                <td><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
-                <td><%=job.job_number%></td>
-                <td><%=job.name%></td>
-                <td><%=job.customer%></td>
-                <td></td>
-                    <% @site_areas.each do |area| %>
-                        <td><%='X' if job.areas.include?(area)%></td>
-                    <% end %>
+                <td><input type="text" name="job[job_number]" value=<%=@job_edit.job_number unless @job_edit.nil?%> ></td> 
+                <td><input type="text" name="job[name]" value=<%=@job_edit.name unless @job_edit.nil?%>></td>
+                <td><input type="text" name="job[customer]" value=<%=@job_edit.customer unless @job_edit.nil?%>></td>
+                <td><input type="hidden" name="jobsite_id" value=<%=@jobsite.id%> ></td>
             </tr>
-            <% end %>
         </table>
-    </div>
-    <%end%>
-
-    <br><button><a href="/jobsite/<%= @jobsite.id %>">Cancel</a></button>
+        <% @site_areas.each do |area| %>
+            <%= area.code %><input type="checkbox" name="areas[]" id="area_<%= area.id %> " value="<%= area.id %>">            
+        <% end %>
+        <br><br><input type="submit" value="Add Job">
+    </form>
+</div>

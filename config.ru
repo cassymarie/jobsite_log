@@ -10,4 +10,5 @@ use UserController
 use JobsiteController
 use JobController
 use EmployeesController
+use TaskController
 run ApplicationController
