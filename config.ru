@@ -8,7 +8,8 @@ use Rack::MethodOverride
 use SessionController
 use UserController
 use JobsiteController
+use TaskController
 use JobController
 use EmployeesController
-use TaskController
+
 run ApplicationController

@@ -8,11 +8,12 @@
                 <th>Description</th>
             </tr>
             <tr>  
-                <td><input type="text" name="task[code]"></td> 
-                <td><input type="text" name="task[name]"></td>
-            </tr>
+                <td><input type="text" name="task[code]"  maxlength="3"  required></td> 
+                <td><input type="text" name="task[name]" required></td>
+            </tr>            
         </table>
-        <input type="hidden" name="task[jobsite_id]" value=<%=@jobsite.id%>>
-        <input type="submit" value="Update">
+        <br>
+        <input type="submit" value="Add Task">
+        <input type="hidden" name="jobsite_id" value=<%=@jobsite.id%>> 
     </form>
 </div>
