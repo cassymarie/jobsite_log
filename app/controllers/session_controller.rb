@@ -6,10 +6,10 @@ class SessionController < ApplicationController
     end
 
     get '/login/existing' do
-        binding.pry
         @email = params[:email]
         erb :'session/new', :layout => :'layouts/layout_signin'
     end
+    
 
     # Add User_id to Session (if verified) > goes to Jobsite Main Page
     # (Invalid) sets the error message to be displayed on current page.
