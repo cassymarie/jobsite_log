@@ -78,6 +78,14 @@
     padding: 15px;
   }
 
+  #time-form {
+    background: rgb(247, 241, 241);
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    margin: 15px auto;
+    width: 90%;
+    padding: 15px;
+  }
+
   header {
     top: 0;
     height: fit-content;

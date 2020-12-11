@@ -10,6 +10,6 @@ use UserController
 use JobsiteController
 use TaskController
 use JobController
+use TimeEntryController
 use EmployeesController
-
 run ApplicationController

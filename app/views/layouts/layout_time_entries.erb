@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+  <head>
+    <title><%=@jobsite.name%> - Time Entry</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+  <header>
+        <nav style="float:left;">
+            <a id = "header_link" href="/logout">Log Out</a>
+            <a id = "header_link" href="/jobsites">Jobsites</a>
+            <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
+        </nav>
+        <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
+  </header>
+
+        <div class="wrapper">
+            <h2>
+            <a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a>
+            <button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button>
+            </h2>
+
+            <%= yield %>
+
+        </div>
+    </body>
+</html>

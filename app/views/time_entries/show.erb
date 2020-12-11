@@ -1,0 +1,49 @@
+<div id="time-form">
+ <h2>Time Entries</h2>
+    <form action="/jobsite/<%=@jobsite.id%>/new" method="post">
+        <input type="hidden" value=<%=@jobsite.id%> name="jobsite_id">
+    <table>
+        <tr>
+            <th></th><th>Name</th><th>Title</th><th>Job</th><th>Area</th><th>Task</th>
+            <th id="tbl-blank-mid"></th><th>REG</th><th>OT</th><th>DT</th><th id="tbl-blank-mid"></th>
+            <th></th><th>Total</th>
+        </tr>
+            <% @employees.each do |employee| %>
+        <tr>
+            <td style="width:1%">
+                <button>+</button></td>
+            <td><label><%= employee.full_name%></label></td><input type="hidden" name="entry[][employee][name]">
+            <td><label><%= Title.find(employee.title_id).title[0].upcase %></label></td>
+            <td>
+                <select id="job_numbers" name="entry[][employee][job_id]">
+                    <option value=""></option>
+                        <%@jobsite.jobs.each do |job|%>                    
+                        <option value=<%=job.id%>><%=job.job_number%></option>
+                    <%end%>
+                </select>
+            </td>
+            <td>
+                <select id="areas" name="entry[][employee][area_id]">
+                    <option value=""></option>
+                </select>
+            </td>
+            <td>
+                <select id="job_numbers" name="entry[][employee][task_id]" required>
+                    <option value=""></option>
+                    <%@tasks.each do |task|%>                    
+                        <option value=<%=task.id%>><%=task.code%></option>
+                    <%end%>
+                </select>    
+            </td>
+            <td id="blank-td"></td>
+            <td><input type="text" name="entry[][hours][reg]"></td>
+            <td><input type="text" name="entry[][hours][ot]"></td>
+            <td><input type="text" name="entry[][hours][dt]"></td>
+            <td id="blank-td"></td>
+            <td></td>
+        </tr>
+            <% end %>
+    </table>
+        <input type="submit" value="Post Time">
+    </form>
+</div>

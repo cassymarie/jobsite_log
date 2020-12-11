@@ -2,6 +2,7 @@ class SessionController < ApplicationController
 
     #View Main Log-in Page
     get '/login' do
+        session.clear
         erb :'session/new', :layout => :'layouts/layout_signin'
     end
 

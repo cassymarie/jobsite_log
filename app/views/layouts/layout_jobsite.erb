@@ -7,10 +7,10 @@
     <header>
         <nav style="float:left;">
             <a id = "header_link"  href="/logout">Log Out</a>
+            <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
         </nav>
         <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p>
     </header>
-    <br><br>
     <div class="wrapper">
         <%= yield %>
     </div>
