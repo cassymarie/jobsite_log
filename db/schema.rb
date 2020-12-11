@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201210033028) do
+ActiveRecord::Schema.define(version: 20201211003507) do
 
   create_table "areas", force: :cascade do |t|
     t.string "code", limit: 3
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20201210033028) do
     t.string  "first_name"
     t.string  "last_name"
     t.integer "title_id"
+  end
+
+  create_table "entry_types", force: :cascade do |t|
+    t.string "code"
+    t.string "description"
   end
 
   create_table "job_areas", force: :cascade do |t|
