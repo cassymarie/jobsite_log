@@ -6,8 +6,8 @@
   <body>
   <header>
         <nav style="float:left;">
-            <a href="/jobsites">Jobsites</a>
-            <a href="/logout">Log Out</a>
+            <a id = "header_link" href="/jobsites">Jobsites</a>
+            <a id = "header_link" href="/logout">Log Out</a>
         </nav>
         <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
   </header>
@@ -20,7 +20,7 @@
 
         <%= yield %>
 
-        <% if @jobs.size > 1 %>
+        <% if (@jobs.size > 0 && @job.nil?) || (@jobs.size > 1 && !@job.nil?)%>
             <div>   
                 <h2>Current Jobs</h2> 
                 <table>

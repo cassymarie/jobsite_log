@@ -1,5 +1,6 @@
-    <div>
-        <h3>Edit Jobs</h3>
+<section style="display:inline-flex"> 
+    <div id="form" style="width:70%">
+        <h2>Edit Jobs</h2>
         <form action="/jobsite/<%=@jobsite.id%>/jobs/edit/<%=@job.id%>" method="POST">
             <input type="hidden" name="_method" value="patch">
             <table>
@@ -26,9 +27,8 @@
             <input type="submit" value="Update Job">
         </form>
     </div>
-<br><br>
-    <div>
-        <h3>Add Area</h3>
+    <div id="form" style="width:25%">
+        <h2>Add Area</h2>
         <form action="/jobsite/<%= @jobsite.id %>/jobs/new/area" method="POST">
             <input type="hidden" name="job_id" value=<%=@job.id.to_i%>>
             <label>Code: <input type="text" name="area[code]"  maxlength="3" required></label><br>
@@ -36,3 +36,4 @@
             <input type="submit" value = "Add Area">
         </form>
     </div>
+</section>

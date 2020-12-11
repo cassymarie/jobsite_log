@@ -6,10 +6,9 @@
   <body>
     <header>
         <nav style="float:left;">
-            <a href="/jobsites">Jobsites</a>
-            <a href="/logout">Log Out</a>
+            <a id = "header_link"  href="/logout">Log Out</a>
         </nav>
-        <h4 style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</h4>
+        <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p>
     </header>
     <br><br>
     <div class="wrapper">
