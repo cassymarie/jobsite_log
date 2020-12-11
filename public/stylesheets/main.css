@@ -78,11 +78,11 @@
     padding: 15px;
   }
 
-  #time-form {
+  #time_form {
     background: rgb(247, 241, 241);
     box-shadow: 0 0 5px rgba(0,0,0,.3);
     margin: 15px auto;
-    width: 90%;
+    width: 95%;
     padding: 15px;
   }
 

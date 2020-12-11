@@ -1,8 +1,7 @@
 class JobsiteController < ApplicationController
     
     get '/jobsites' do
-        
-        redirect '/error' if !logged_in?
+        redirect '/error' if !logged_in? || params.empty?
         @user = current_user
         
         user_sites = []

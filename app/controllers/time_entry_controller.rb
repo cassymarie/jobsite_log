@@ -7,7 +7,7 @@ class TimeEntryController < ApplicationController
         erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
     end
 
-    post '/jobsite/<%=@jobsite.id%>/new' do
+    post '/jobsite/:id/time_entry/new' do
         @jobsite = Jobsite.find(params[:id])
         binding.pry
         redirect "/jobsite/#{@jobsite.id}/time_entry"
