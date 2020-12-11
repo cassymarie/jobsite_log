@@ -1,29 +1,31 @@
-<h1><%= @jobsite.name %></h1>
+<h2 id="sub_header"><%=@jobsite.name%>
+    <button style="float:right;"><a href="/jobsites">X</a></button>
+</h2>
 
 <div id="jobsite_section">
     <div id="jobsite_section_left">
         <div id = "jobsite_form">
-            <h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new"><%= @jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
+            <h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new"><%= @jobsite.jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
 
-            <% if @jobs.size > 0%>
+            <% if @jobsite.jobs.size > 0%>
             <table>
                 <tr>
                     <th>Job No.</th>
                     <th>Job Name</th>
                     <th>Customer</th>
                     <th>        </th>
-                    <%@site_areas.each do |area|%>
+                    <%@jobsite.site_areas.each do |area|%>
                     <th><%=area.code%></th>
                     <%end%>
                 </tr>
 
-                <% @jobs.each do |job| %>
+                <% @jobsite.jobs.each do |job| %>
                     <tr>
                         <td><%=job.job_number%></td>
                         <td><%=job.name%></td>
                         <td><%=job.customer%></td>
                         <td>        </td>
-                        <% @site_areas.each do |area| %>
+                        <% @jobsite.site_areas.each do |area| %>
                             <td><%='X' if job.areas.include?(area)%></td>
                         <% end %>
                     </tr>
@@ -33,14 +35,14 @@
         </div>
         <br>
         <div id="jobsite_form">
-            <h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/new'><%= @employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
-            <% if @employees.size > 0%>
+            <h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/new'><%= @jobsite.employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
+            <% if @jobsite.employees.size > 0%>
             <table>
                 <tr>
                     <th>Employee Name</th>
                     <th>Title</th>
                 </tr>
-                <%@employees.each do |employee|%>
+                <%@jobsite.employees.each do |employee|%>
                 <tr>
                     <td style="width:20%"><%=employee.full_name%></td>
                     <td><%=Title.find(employee.title_id).title%></td>
@@ -57,9 +59,9 @@
         </div>
 
         <div id="jobsite_form">
-            <h2>Tasks <button><a href='/jobsite/<%= @jobsite.id %>/tasks'>Add/Edit</button></h2>
+            <h2>Tasks <button><a href='/jobsite/<%= @jobsite.id %>/tasks'>Add/Edit</a></button></h2>
             <ul style="text-align:left;">
-                <% @tasks.each do |task| %>
+                <% @jobsite.tasks.each do |task| %>
                 <li>[<%=task.code%>] <%=task.name%></li>
                 <%end%>
             </ul>

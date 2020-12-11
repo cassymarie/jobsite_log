@@ -5,7 +5,6 @@ class EmployeesController < ApplicationController
         @jobsite = Jobsite.find(params[:id])
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
 
-        @employees = @jobsite.employees
         erb :'employees/new', :layout => :'layouts/layout_sitecrew'
     end
 
@@ -15,7 +14,6 @@ class EmployeesController < ApplicationController
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
 
         @employee = Employee.find(params[:employee_id])
-        @employees = @jobsite.employees
         erb :'employees/edit', :layout => :'layouts/layout_sitecrew'
     end
 
@@ -25,7 +23,6 @@ class EmployeesController < ApplicationController
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
 
         @employee = Employee.find(params[:employee_id])
-        @employees = @jobsite.employees
         erb :'employees/delete', :layout => :'layouts/layout_sitecrew'
     end
 
@@ -37,6 +34,7 @@ class EmployeesController < ApplicationController
         )
         jobsite = Jobsite.find(params[:jobsite][:id].to_i)
         employee.jobsites << jobsite
+        employee.save
         redirect "/jobsite/#{jobsite.id}"
     end
 

@@ -8,8 +8,8 @@
                     <th>Job No.</th>
                     <th>Job Name</th>
                     <th>Customer</th>
-                    <th><%= 'Areas:  ' if @site_areas.size > 0%></th>
-                    <%@site_areas.each do |area|%>
+                    <th><%= 'Areas:  ' if @jobsite.site_areas.size > 0%></th>
+                    <%@jobsite.site_areas.each do |area|%>
                         <th><%=area.code%></th>
                     <%end%>
                 </tr>
@@ -18,7 +18,7 @@
                     <td><input type="text" name="job[name]" value="<%=@job.name%>"></td>
                     <td><input type="text" name="job[customer]" value="<%=@job.customer%>"></td>
                     <td></td>
-                        <% @site_areas.each do |area| %>
+                        <% @jobsite.site_areas.each do |area| %>
                         <td><input type="checkbox" name="areas[]" id="area_<%= area.id %> " value="<%= area.id %>" <%='checked' if @job.areas.include?(area)%>></td>
                         <% end %>
                 </tr>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <head>
     <title>Jobsite Log - Tasks</title>
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
   </head>
   <body>
   <header>
@@ -10,7 +10,7 @@
             <a id = "header_link" href="/jobsites">Jobsites</a>
             <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
         </nav>
-        <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
+        <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p>
   </header>
 
         <div class="wrapper">
@@ -21,7 +21,7 @@
 
             <%= yield %>
 
-            <% if @tasks.size > 0 %>
+            <% if @jobsite.tasks.size > 0 %>
             <div>   
                 <h2>Jobsite Tasks</h2> 
                 <table>
@@ -31,7 +31,7 @@
                         <th>Code</th>
                         <th>Description</th>
                     </tr>
-                    <% @tasks.each do |task| %>
+                    <% @jobsite.tasks.each do |task| %>
                     <tr>
                         <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/task/delete/<%= task.id %>">X</a></button></td>
                         <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/task/edit/<%= task.id %>">...</a></button></td>

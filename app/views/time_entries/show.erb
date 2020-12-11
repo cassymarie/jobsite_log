@@ -1,5 +1,5 @@
-<div id="time_form">
- <h2>Time Entries</h2>
+<div id="display_list">
+ <h2>Time Entry</h2>
     <form action="/jobsite/<%=@jobsite.id%>/new" method="post">
         <input type="hidden" value=<%=@jobsite.id%> name="jobsite_id">
     <table>
@@ -8,7 +8,7 @@
             <th id="tbl-blank-mid"></th><th>REG</th><th>OT</th><th>DT</th><th id="tbl-blank-mid"></th>
             <th></th><th>Total</th>
         </tr>
-            <% @employees.each do |employee| %>
+            <% @jobsite.employees.each do |employee| %>
         <tr>
             <td style="width:1%">
                 <button>+</button></td>
@@ -30,7 +30,7 @@
             <td>
                 <select id="job_numbers" name="entry[][employee][task_id]" required>
                     <option value=""></option>
-                    <%@tasks.each do |task|%>                    
+                    <%@jobsite.tasks.each do |task|%>                    
                         <option value=<%=task.id%>><%=task.code%></option>
                     <%end%>
                 </select>    

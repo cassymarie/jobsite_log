@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <head>
     <title><%=@jobsite.name%> - Time Entry</title>
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
   </head>
   <body>
   <header>
@@ -14,7 +14,7 @@
   </header>
 
         <div class="wrapper">
-            <h2>
+            <h2 id="sub_header">
             <a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a>
             <button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button>
             </h2>

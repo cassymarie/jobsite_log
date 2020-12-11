@@ -4,9 +4,6 @@ class JobController < ApplicationController
         redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
-
-        @jobs = @jobsite.jobs
-        @site_areas = @jobsite.site_areas
         erb :'jobs/new', :layout => :'layouts/layout_jobs'
     end
 
@@ -14,10 +11,7 @@ class JobController < ApplicationController
         redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
-
         @job = Job.find(params[:job_id])
-        @jobs = @jobsite.jobs
-        @site_areas = @jobsite.site_areas
         erb :'jobs/edit', :layout => :'layouts/layout_jobs'
     end
 
@@ -26,11 +20,9 @@ class JobController < ApplicationController
         @jobsite = Jobsite.find(params[:id])
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
 
-        @jobs = @jobsite.jobs
-        if @jobs.size == 0 
+        if @jobsite.jobs.size == 0 
             redirect "/jobsite/#{@jobsite.id}/jobs/new"
         else
-            @site_areas = @jobsite.site_areas
             erb :'jobs/edit', :layout => :'layouts/layout_jobs'
         end
     end
@@ -41,8 +33,6 @@ class JobController < ApplicationController
         redirect '/jobsites' unless @jobsite.users.include?(current_user)
 
         @job = Job.find(params[:job_id])
-        @jobs = @jobsite.jobs
-        @site_areas = @jobsite.site_areas
         erb :'jobs/delete', :layout => :'layouts/layout_jobs'
     end
 
@@ -51,8 +41,6 @@ class JobController < ApplicationController
         new_area = Area.create(:code => params[:area][:code].upcase, :name => params[:area][:name].capitalize)
         @job.areas << new_area
         @jobsite = Jobsite.find(params[:id])
-        @jobs = @jobsite.jobs
-        @site_areas = @jobsite.site_areas
         new_area.name = params[:area][:name].capitalize
         new_area.save
         redirect "/jobsite/#{@jobsite.id}/jobs/edit/#{@job.id}"
