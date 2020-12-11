@@ -2,7 +2,7 @@
 
 <div id="jobsite_section">
     <div id="jobsite_section_left">
-        <div id = "form">
+        <div id = "jobsite_form">
             <h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new"><%= @jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
 
             <% if @jobs.size > 0%>
@@ -32,7 +32,7 @@
             <%end%>
         </div>
         <br>
-        <div id="form">
+        <div id="jobsite_form">
             <h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/new'><%= @employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
             <% if @employees.size > 0%>
             <table>
@@ -52,11 +52,11 @@
     </div>
     <br>
     <div id="jobsite_section_right">
-        <div id="form">
+        <div id="jobsite_form">
             <h2><a href='/jobsite/<%= @jobsite.id %>/time_entry'>Time Entry </h2>
         </div>
 
-        <div id="form" style="width:25%;">
+        <div id="jobsite_form">
             <h2>Tasks <button><a href='/jobsite/<%= @jobsite.id %>/tasks'>Add/Edit</button></h2>
             <ul style="text-align:left;">
                 <% @tasks.each do |task| %>

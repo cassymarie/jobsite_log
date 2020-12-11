@@ -1,5 +1,10 @@
 @media screen {
   /* --- Reset Styles --- */
+  * {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   html, body {
     height: 100%;
@@ -12,6 +17,18 @@
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+  }
+
+  #display_list {
+    width: 90%;
+    background-color: rgb(225, 230, 236);
+    border: 1px solid rgba(0,0,0,.3);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align:center;
+    align-items: center;
   }
 
   table {
@@ -34,64 +51,25 @@
 
   #form {
     background: rgb(247, 241, 241);
-    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    border: 1px solid rgba(0,0,0,.3);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
     margin: 15px auto;
     width: 50%;
     padding: 15px;
   }
 
-  #jobsite_section {
-    background: rgb(19, 54, 211);
-    padding: 10px;
-    margin: auto;
-    display: inline-flex;
-  }
 
-  #jobsite_section_left {
-    background: rgb(22, 196, 74);
-    padding: 10px;
-    margin: auto;
-    width: 70%;
-  }
-
-  #jobsite_section_left {
-    background: rgb(199, 17, 169);
-    padding: 10px;
-    margin: auto;
-    width: 25%;
-  }
-
-  /* #my_jobsites {
-    display: inline-block;
-  } */
-
-  #jobsite_card {
-    width: 25%;
-    background: rgb(221, 221, 223);
-    padding: 10px;
-    margin: 10px;
-  }
 
   .wrapper {
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 90%;
-    max-height: 90%;
+    max-height: fit-content;
     align-items: center;
     padding: auto;
+    padding-bottom: 10px;
     text-align: center;
-    /*padding: 2.25%;  18px / 800px */
-  }
-
-
-
-  #time_form {
-    background: rgb(247, 241, 241);
-    box-shadow: 0 0 5px rgba(0,0,0,.3);
-    margin: 15px auto;
-    width: 95%;
-    padding: 15px;
   }
 
   header {
@@ -124,7 +102,15 @@
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+    padding: auto;
     text-align: left;
+  }
+
+  #sub_header {
+    background:rgba(179, 179, 179, 0.3);
+    padding: 5px 15px 5px 10px;
+    border-bottom: 1px solid rgb(143, 143, 143);
+    box-shadow: 0px 2px 5px rgba(0,0,0,.3);
   }
 
   #header_h2 {
