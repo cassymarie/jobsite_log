@@ -1,13 +1,20 @@
 <!DOCTYPE html>
   <head>
-    <title>Jobsite Log - Main</title>
+    <% if @jobsite.nil? %>
+    <title>Jobsite Log</title>
+    <% else %>
+    <title><%=@jobsite.name%></title>
+    <%end%>
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
     <header>
         <nav style="float:left;">
             <a id = "header_link"  href="/logout">Log Out</a>
-            <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
+            <% unless @jobsite.nil? %>
+              <a id = "header_link" href="/jobsites">Jobsites</a>
+              <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
+            <% end %>
         </nav>
         <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p>
     </header>

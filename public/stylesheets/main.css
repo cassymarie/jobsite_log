@@ -1,10 +1,5 @@
 @media screen {
   /* --- Reset Styles --- */
-  * {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
 
   html, body {
     height: 100%;
@@ -37,14 +32,33 @@
     color: darkslateblue;
   }
 
-  div {
-    width: 90%;
-    background-color: rgb(225, 230, 236);
-    border: 2px, solid, black;
+  #form {
+    background: rgb(247, 241, 241);
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    margin: 15px auto;
+    width: 50%;
+    padding: 15px;
+  }
+
+  #jobsite_section {
+    background: rgb(19, 54, 211);
     padding: 10px;
     margin: auto;
-    text-align:center;
-    align-items: center;
+    display: inline-flex;
+  }
+
+  #jobsite_section_left {
+    background: rgb(22, 196, 74);
+    padding: 10px;
+    margin: auto;
+    width: 70%;
+  }
+
+  #jobsite_section_left {
+    background: rgb(199, 17, 169);
+    padding: 10px;
+    margin: auto;
+    width: 25%;
   }
 
   /* #my_jobsites {
@@ -70,13 +84,7 @@
     /*padding: 2.25%;  18px / 800px */
   }
 
-  #form {
-    background: rgb(247, 241, 241);
-    box-shadow: 0 0 5px rgba(0,0,0,.3);
-    margin: 15px auto;
-    width: 50%;
-    padding: 15px;
-  }
+
 
   #time_form {
     background: rgb(247, 241, 241);
@@ -135,30 +143,3 @@
     overflow: hidden;
   }
 }
-
-/* @media screen and (max-width: 960px) {
-  .wrapper {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    width: auto;
-  }
-
-  .content {
-    float: none;
-    width: 100%;
-  }
-
-
-  h1 {
-    font-size: 24px;
-    line-height: 36px;
-  }
-
-  h2 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-} */
-
-

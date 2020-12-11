@@ -2,7 +2,6 @@ class SessionController < ApplicationController
 
     #View Main Log-in Page
     get '/login' do
-        session.clear
         erb :'session/new', :layout => :'layouts/layout_signin'
     end
 
@@ -28,6 +27,7 @@ class SessionController < ApplicationController
             else
                 @error = @user.errors.full_messages.join(" - ")
             end
+            
             erb :'session/new', :layout => :'layouts/layout_signin'
         end
 
