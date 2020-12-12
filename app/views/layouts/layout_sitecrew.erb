@@ -14,12 +14,12 @@
     </header>
 
     <div class="wrapper">
-        <h2><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a><button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button></h2>
+        <h2  id="sub_header"><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a><button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button></h2>
 
         <%= yield %>
 
         <% if @jobsite.employees.size > 1 %>
-            <div>   
+            <div id="display_list">   
                 <h2>Site Employees</h2> 
                     <table>
                         <tr>

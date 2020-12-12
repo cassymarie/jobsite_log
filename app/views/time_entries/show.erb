@@ -4,16 +4,15 @@
         <input type="hidden" value=<%=@jobsite.id%> name="jobsite_id">
     <table>
         <tr>
-            <th></th><th>Name</th><th>Title</th><th>Job</th><th>Area</th><th>Task</th>
+            <th>Title</th><th>Name</th><th></th><th>Job</th><th>Area</th><th>Task</th>
             <th id="tbl-blank-mid"></th><th>REG</th><th>OT</th><th>DT</th><th id="tbl-blank-mid"></th>
             <th></th><th>Total</th>
         </tr>
             <% @jobsite.employees.each do |employee| %>
-        <tr>
-            <td style="width:1%">
-                <button>+</button></td>
-            <td><label><%= employee.full_name%></label></td><input type="hidden" name="entry[][employee][name]">
+        <tr >
             <td><label><%= Title.find(employee.title_id).title[0].upcase %></label></td>
+            <td><label><%= employee.full_name%></label></td><input type="hidden" name="entry[][employee][name]">
+            <td><button>+</button></td>
             <td>
                 <select id="job_numbers" name="entry[][employee][job_id]">
                     <option value=""></option>
