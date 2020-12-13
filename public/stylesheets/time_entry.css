@@ -7,6 +7,12 @@
     margin-bottom: 16px;
 }
 
+#day_navbar_dash{
+    width: 100%;
+    align-items: stretch;
+    margin-bottom: 10px;
+}
+
 #page_title{
     margin-bottom: 0;
     border-bottom: none;
@@ -15,9 +21,14 @@
 }
 
 #day_button {
-    width: inherit;
     width: 10%;
     height: 30px;
+}
+
+#day_button_dash{
+    width: 14.285%;
+    margin-bottom: 10px;
+    padding: 5px;
 }
 
 /* Time Entry - Form*/

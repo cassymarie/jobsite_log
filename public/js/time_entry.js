@@ -69,12 +69,14 @@ function calculate_hours(){
 
         grand_total += total;
     }
+
     document.getElementById("reg_total").innerText = grand_reg.toFixed(2);
     document.getElementById("ot_total").innerText = grand_ot.toFixed(2);
     document.getElementById("dt_total").innerText = grand_dt.toFixed(2);
     document.getElementById("daily_total").innerText = grand_total.toFixed(2);
 }
-// day_btn.addEventListener('click', apply_workdate);
+
+// nav bar - day click, adds date to work day.
 
 function apply_workdate(btn){
     var datediff = btn.value;

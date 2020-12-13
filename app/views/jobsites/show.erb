@@ -57,6 +57,15 @@
         <div id="jobsite_form">
             <form method="get" action="/jobsite/<%= @jobsite.id %>/time_entry">
                 <h2>Time Entry <input style="float:right;" type="submit" value="Edit/View"> </h2>
+                <div id="day_navbar_dash" style="display:inline-flex;"> 
+                    <button id="day_button_dash" value=5 onclick="apply_workdate(this)">MON</button>
+                    <button id="day_button_dash" value=4 onclick="apply_workdate(this)">TUE</button>
+                    <button id="day_button_dash" value=3 onclick="apply_workdate(this)">WED</button>
+                    <button id="day_button_dash" value=2 onclick="apply_workdate(this)">THU</button>
+                    <button id="day_button_dash" value=1 onclick="apply_workdate(this)">FRI</button>
+                    <button id="day_button_dash" value=0 onclick="apply_workdate(this)">SAT</button>
+                    <button id="day_button_dash" value=-1 onclick="apply_workdate(this)">SUN</button>
+                </div>
                 <label for="week_ending">For Week Ending (Sunday)</label>
                 <input name="week_ending" type="date" required>
             </form>
