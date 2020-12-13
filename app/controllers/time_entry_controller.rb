@@ -1,7 +1,10 @@
 class TimeEntryController < ApplicationController
     get '/jobsite/:id/time_entry' do
+        redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
+        redirect "/jobsite/#{@jobsite.id}" unless @jobsite.users.include?(current_user)
         @week_ending = DateTime.parse(params[:week_ending]).to_date
+
         erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
     end
 
