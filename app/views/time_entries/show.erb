@@ -1,14 +1,21 @@
 
 <div id="display_list">
     <nav id="day_navbar" style="display:inline-flex;">
+        <%= (@workdate - @sub_days.days)%>
+        <%= @workdate.strftime("%^A")[0..2] %>
         <h2 id="page_title">Time Entry</h2>
-        <button id="day_button" value=5 onclick="apply_workdate(this)">mon</button>
-        <button id="day_button" value=4 onclick="apply_workdate(this)">tue</button>
+        <% count = 5 %> 
+        <% while count > -2 do %>
+            <button id="day_button" value=<%= count %> onclick="apply_workdate(this)">mon</button>
+            <% count -= 1 %> 
+        <% end %>
+        <!-- <button id="day_button" value=<%= count %> onclick="apply_workdate(this)">mon</button>
+        <button id="day_button" class="<%'cur_day' if count == @sub_days %>" value=4 onclick="apply_workdate(this)">tue</button>
         <button id="day_button" value=3 onclick="apply_workdate(this)">wed</button>
         <button id="day_button" value=2 onclick="apply_workdate(this)">thu</button>
         <button id="day_button" value=1 onclick="apply_workdate(this)">fri</button>
         <button id="day_button" value=0 onclick="apply_workdate(this)">sat</button>
-        <button id="day_button" value=-1 onclick="apply_workdate(this)">sun</button>
+        <button id="day_button" value=-1 onclick="apply_workdate(this)">sun</button> -->
     </nav>
     <input type="hidden" id="day_index" value=<%=@startIndex%>>
     <!-- <form > --> 
