@@ -26,9 +26,11 @@
 }
 
 #day_button_dash{
-    width: 14.285%;
+    width: 12%;
+    margin: 5px;
     margin-bottom: 10px;
     padding: 5px;
+
 }
 
 /* Time Entry - Form*/

@@ -78,6 +78,8 @@ function calculate_hours(){
 
 // nav bar - day click, adds date to work day.
 
+
+
 function apply_workdate(btn){
     var datediff = btn.value;
     var wordate = document.getElementById('wordate');
