@@ -30,18 +30,18 @@
                 <h2>Site Employees</h2> 
                     <table>
                         <tr>
-                            <th></th>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Title</th>
+                            <th id="blank_header"></th>
+                            <th id="blank_header"></th>
+                            <th style="text-align: left;">Name</th>
+                            <th style="text-align: left;">Title</th>
                         </tr>
                     
                     <%@jobsite.employees.each do |employee|%>
                         <tr>
-                            <td style="width:1%" ><button id="delete_employee"><a href="/sitecrew/<%=@jobsite.id%>/delete/<%=employee.id%>">X</a></button></td>
-                            <td style="width:2%"><button id="edit_employee"><a href="/sitecrew/<%=@jobsite.id%>/edit/<%=employee.id%>">...</a></button></td>
-                            <td style="width:10%"><%=employee.full_name%></td>
-                            <td><%=Title.find(employee.title_id).title%></td>
+                            <td id="blankcell" style="text-align: right;" width=5px><button id="delete_employee"><a href="/sitecrew/<%=@jobsite.id%>/delete/<%=employee.id%>">X</a></button></td>
+                            <td  id="blankcell" style="text-align: left;" width=5px><button id="edit_employee"><a href="/sitecrew/<%=@jobsite.id%>/edit/<%=employee.id%>">...</a></button></td>
+                            <td style="text-align: left;" width=200px><%=employee.full_name%></td>
+                            <td style="text-align: left;" width=200px><%=Title.find(employee.title_id).title%></td>
                         </tr>
                     <%end%>
                     </table>
