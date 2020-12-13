@@ -56,10 +56,10 @@ function calculate_hours(){
     for(var r = 1; r < tbl.rows.length - 1; r++){
         var row = tbl.rows[r];
         var reg_val = hours(row.getElementsByClassName("reg")[0].value);
-        var dt_val = hours(row.getElementsByClassName("ot")[0].value);
-        var ot_val = hours(row.getElementsByClassName("dt")[0].value);
+        var ot_val = hours(row.getElementsByClassName("ot")[0].value);
+        var dt_val = hours(row.getElementsByClassName("dt")[0].value);
 
-        var total = reg_val + dt_val + ot_val;
+        var total = reg_val + ot_val  + dt_val ;
 
         grand_reg += reg_val;
         grand_ot += ot_val;
