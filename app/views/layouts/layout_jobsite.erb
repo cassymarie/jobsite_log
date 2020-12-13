@@ -11,14 +11,31 @@
   </head>
   <body>
     <header>
-        <nav style="float:left;">
+            <div class="dropdown" style="float:left;">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content" style="left:0;">
+                  <% unless @jobsite.nil? %>
+                    <a href="/jobsites">Jobsites</a>
+                    <a href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
+                  <% end %>
+                </div>
+              </div>
+              <h1 id="headerWelcome">Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</h1>
+              <div class="dropdown" style="float:right;">
+                <button class="dropbtn">My Account</button>
+                <div class="dropdown-content">
+                  <a href="/logout">Log Out</a>
+                </div>
+              </div>
+
+        <!-- <nav style="float:left;">
             <a id = "header_link"  href="/logout">Log Out</a>
             <% unless @jobsite.nil? %>
               <a id = "header_link" href="/jobsites">Jobsites</a>
               <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
             <% end %>
         </nav>
-        <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p>
+        <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p> -->
     </header>
     <div class="main_page">
         <%= yield %>
