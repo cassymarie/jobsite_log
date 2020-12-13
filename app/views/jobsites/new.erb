@@ -1,4 +1,10 @@
-<h2 >My Jobsites</h2>
+<h2 id="sub_header">
+    <a href="/jobsites">My Jobsites</a>
+    <button id="back_button" style="float:right;"><a href="/jobsites">X</a></button>
+</h2>
+
+<div id="form">
+<h2>Add Jobsite </h2>
     <div id = "form">
         <h2>Create New Jobsite</h3>
         <form action="/jobsite/new" method="POST">
@@ -8,21 +14,13 @@
     </div>
 
 <div id="display_list">
-    <% count = 1 %>
-    <% @jobsites.each do |jobsite|%>
-        <% if count == 1 %>
-            <%= '<ul id="jobsite_list">' %>
-        <% end %>
-        
-                <li id="jobsite_card">
-                    <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
-                    <p><%= jobsite.jobs.count %> Current Jobs </p>
-                    <p><%= jobsite.employees.count %> Site Employees </p>
-                </div>
-            <% count += 1 %>
-            <% if count == 4 %>
-                <%= '</ul>' %>
-                <% count = 1 %>
-            <% end %>
-    <% end %>
+   <ul style="display:inline-flex;">
+        <% @jobsites.each do |jobsite|%>
+            <li id="jobsite_card" >
+                <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
+                <p><%= jobsite.jobs.count %> Current Jobs </p>
+                <p><%= jobsite.employees.count %> Site Employees </p>
+            </li>
+        <%end%>
+    </ul>
 </div>

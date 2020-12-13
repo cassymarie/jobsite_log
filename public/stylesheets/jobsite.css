@@ -19,10 +19,12 @@
   }
 
   #jobsite_card {
-    width: 25%;
-    background: rgb(221, 221, 223);
-    padding: 10px;
-    margin: 10px;
+    background:rgb(225, 230, 236);
+    border: 1px solid rgba(0,0,0,.3);
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    width: fit-content;
+    padding: 15px;
+    margin: 20px;
   }
 
 

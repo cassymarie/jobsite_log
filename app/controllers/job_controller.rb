@@ -60,7 +60,7 @@ class JobController < ApplicationController
         redirect "jobsite/#{@jobsite.id}/jobs/new"
     end
 
-    post '/jobsite/:id/jobs/edit/:job_id' do
+    patch '/jobsite/:id/jobs/edit/:job_id' do
         job = Job.find(params[:job_id].to_i)
         job.update(params[:job])
         areas = params[:areas]
