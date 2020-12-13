@@ -3,6 +3,9 @@
 var tbl = document.getElementById('time_entry_table');
 var add_btn = document.getElementById('add_job');
 var day_btn = document.getElementById('day_button');
+var workdate = document.getElementById('workdate');
+var workday = document.getElementById('');
+var week_ending = document.getElementById('week_ending');
 
 // function that stops the user from submitting the form when they press Enter
 function disableEnter(e){
@@ -12,16 +15,14 @@ function disableEnter(e){
     if (keycode == 13) {
       eve.cancelBubble = true;
       eve.returnValue = false;
-  
+
       if (eve.stopPropagation) {   
         eve.stopPropagation();
         eve.preventDefault();
       }
-
       return false;
     }
 }
-
 
 // Adds another job to the employee
 // - clones the row that button was clicked
@@ -77,10 +78,12 @@ function calculate_hours(){
 }
 
 // nav bar - day click, adds date to work day.
+function what_day_is_it(){
+
+}
+
 function apply_workdate(btn){
     var datediff = btn.value;
-    var workdate = document.getElementById('workdate');
-    var week_ending = document.getElementById('week_ending');
     var dayDate = new Date(week_ending.value);
     dayDate.setDate(dayDate.getDate() - datediff);
     workdate.value = dayDate.toDateString();

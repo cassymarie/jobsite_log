@@ -1,5 +1,6 @@
 
 <div id="display_list">
+    <input type="hidden" value=<%= @sub_days.to_i %> name="weekday">
     <nav id="day_navbar" style="display:inline-flex;">
         <h2 id="page_title">Time Entry</h2>
         <%# <div id="days"> %>
@@ -10,7 +11,7 @@
             <% end %>
         <%# </div> %>
     </nav>
-    <input type="hidden" id="day_index" value=<%=@startIndex%>>
+    <input type="hidden" id="day_index" value=<%=@sub_days.to_i%>>
     <!-- <form > --> 
     <% if !@sub_days.nil? %>
     <div id="form_time">

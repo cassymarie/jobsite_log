@@ -42,9 +42,9 @@
 #form_time {
     background: rgb(247, 241, 241);
     border: 1px solid rgba(0,0,0,.3);
-    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
-    margin: 15px auto;
-    width: 90%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.3);
+    margin: 10px auto;
+    width: 95%;
     padding: 15px;
     text-align: left;
 }
