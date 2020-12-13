@@ -13,8 +13,11 @@
             <p style="float:right;"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</p>
     </header>
 
-    <div class="wrapper">
-        <h2  id="sub_header"><a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a><button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button></h2>
+    <div class="main_page">
+        <h2  id="sub_header">
+            <a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a>
+            <button  id="back_button" style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button>
+        </h2>
 
         <%= yield %>
 

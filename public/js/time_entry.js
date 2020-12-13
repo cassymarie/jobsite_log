@@ -80,16 +80,22 @@ function calculate_hours(){
 // nav bar - day click, adds date to work day.
 function what_day_is_it(btn){
     workday.value = btn.value;
+    btn.className = "current_day";
+    apply_workdate();
 }
 
-function apply_workdate(btn){
+function apply_workdate(){
 
-    var datediff = btn.value;
+    var datediff = workday.value;
     datediff -= 1;
 
     console.log(datediff);
     var dayDate = new Date(week_ending.value);
     dayDate.setDate(dayDate.getDate() - datediff);
     workdate.value = dayDate.toDateString();
-    btn.className = "current_day";
 }
+
+apply_workdate();
+
+
+

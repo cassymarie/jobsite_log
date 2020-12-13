@@ -29,7 +29,7 @@ html {
   padding: 15px;
 }
 
-.wrapper {
+.main_page {
     background: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
@@ -97,3 +97,12 @@ header {
     align-items: center;
   }
 
+  #back_button {
+    width: 20px;
+    height: 20px;
+    
+  }
+
+  #back_button a {
+    text-emphasis: none;
+  }

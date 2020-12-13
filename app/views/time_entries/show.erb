@@ -1,17 +1,17 @@
 
 <div id="display_list">
     <input type="hidden" value=<%= @sub_days.to_i %> name="weekday">
+    <input type="hidden" id="day_index" value=<%=@sub_days.to_i%>>
     <nav id="day_navbar" style="display:inline-flex;">
         <h2 id="page_title">Time Entry</h2>
+            <div class="day_class_reset">
             <% count = 6 %> 
             <% while count > -1 do %>
-                <button id="day_button" value=<%= count %> onclick="apply_workdate(this)" class=<%= 'current_day' unless (count + 1).to_i != @sub_days.to_i %>><%= (@week_ending - (count).days).to_date.strftime("%^A")[0..2] %></button>
+                <button id="day_button" value=<%= count %> onclick="what_day_is_it(this)" class=<%= 'current_day' unless (count + 1).to_i != @sub_days.to_i %>><%= (@week_ending - (count).days).to_date.strftime("%^A")[0..2] %></button>
                 <% count -= 1 %> 
             <% end %>
+            </div>
     </nav>
-    <!-- <form > --> 
-    <input type="text" id="day_index" value=<%=@sub_days.to_i%> onchange="apply_workdate(this)">
-    <!-- <form > --> 
     <% if !@sub_days.nil? %>
     <div id="form_time">
         <form onkeydown="return !(event.keyCode==13)" action="/jobsite/<%=@jobsite.id%>/time_entry/new" method="post">

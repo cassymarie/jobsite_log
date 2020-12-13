@@ -99,3 +99,8 @@
     line-height: 24px;
 }
 
+.day_class_reset {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
