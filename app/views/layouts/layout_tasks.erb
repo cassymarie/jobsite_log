@@ -2,6 +2,7 @@
   <head>
     <title>Jobsite Log - Tasks</title>
     <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link rel="stylesheet" href="/stylesheets/header.css" />
   </head>
   <body>
   <header>
@@ -9,7 +10,7 @@
                 <button class="dropbtn">Menu</button>
                 <div class="dropdown-content" style="left:0;">
                   <% unless @jobsite.nil? %>
-                      <a href="/jobsites">Jobsites</a>
+                      <a href="/jobsites">My Jobsites</a>
                   <% end %>
                   <a href="/logout">Log Out</a>
                 </div>
