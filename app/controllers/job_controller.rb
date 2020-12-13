@@ -73,5 +73,11 @@ class JobController < ApplicationController
         redirect "jobsite/#{params[:id]}"
     end
 
+    delete '/jobsite/:id/jobs/delete/:job_id' do
+        job = Job.find(params[:job_id])
+        job.delete
+        redirect "jobsite/#{params[:id]}"
+    end
+
 
 end

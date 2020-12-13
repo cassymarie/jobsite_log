@@ -23,7 +23,7 @@ class JobsiteController < ApplicationController
         redirect '/error' if !logged_in? 
         @jobsites = current_user.jobsites
         @jobsite = Jobsite.find(params[:id])
-        erb :'jobsites/edit', :layout => :'layouts/layout_jobsite'
+        erb :'jobsites/delete', :layout => :'layouts/layout_jobsite'
     end
 
     get '/jobsite/:id' do 
@@ -43,6 +43,12 @@ class JobsiteController < ApplicationController
         jobsite = Jobsite.find(params[:id])
         jobsite.name = params[:jobsite][:name]
         jobsite.save
+        redirect '/jobsites'
+    end
+
+    delete '/jobsite/delete/:id' do
+        jobsite = Jobsite.find(params[:id])
+        jobsite.delete
         redirect '/jobsites'
     end
 
