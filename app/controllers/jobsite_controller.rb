@@ -2,26 +2,26 @@ class JobsiteController < ApplicationController
     
     get '/jobsites' do
         redirect '/error' if !logged_in? 
-        @jobsites = current_user.jobsites
+        #@jobsites = current_user.jobsites
         erb :'jobsites/index', :layout => :'layouts/layout_jobsite'
     end
 
     get '/jobsites/new' do
         redirect '/error' if !logged_in? 
-        @jobsites = current_user.jobsites
+        #@jobsites = current_user.jobsites
         erb :'jobsites/new', :layout => :'layouts/layout_jobsite'
     end
 
     get '/jobsite/edit/:id' do
         redirect '/error' if !logged_in? 
-        @jobsites = current_user.jobsites
+        #@jobsites = current_user.jobsites
         @jobsite = Jobsite.find(params[:id])
         erb :'jobsites/edit', :layout => :'layouts/layout_jobsite'
     end
 
     get '/jobsite/delete/:id' do
         redirect '/error' if !logged_in? 
-        @jobsites = current_user.jobsites
+        #@jobsites = current_user.jobsites
         @jobsite = Jobsite.find(params[:id])
         erb :'jobsites/delete', :layout => :'layouts/layout_jobsite'
     end

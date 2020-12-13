@@ -2,6 +2,7 @@
 <div id="display_list">
     <input type="hidden" value=<%= @sub_days.to_i %> name="weekday">
     <input type="hidden" id="day_index" value=<%=@sub_days.to_i%>>
+    
     <nav id="day_navbar" style="display:inline-flex;">
         <h2 id="page_title">Time Entry</h2>
             <div class="day_class_reset">
@@ -12,6 +13,7 @@
             <% end %>
             </div>
     </nav>
+
     <% if !@sub_days.nil? %>
     <div id="form_time">
         <form onkeydown="return !(event.keyCode==13)" action="/jobsite/<%=@jobsite.id%>/time_entry/new" method="post">

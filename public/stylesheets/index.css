@@ -74,7 +74,7 @@ a {
   background: rgb(247, 241, 241);
   box-shadow: 0 0 5px rgba(0,0,0,.3);
   margin: 10px;
-  padding: 15px;
+  padding: 0px;
 }
 
 .main_page {
@@ -159,8 +159,51 @@ a {
     height: 36px;
   }
 
-  #subheader_button a{
+  button a{
     width: 100%;
     height: 100%;
   }
   #subheader_button:hover {background-color: rgba(179, 179, 179, 0.75);}
+
+  #form_header {
+    background: rgba(235, 218, 218, .7);
+    border-bottom: 1px solid rgb(143, 143, 143);
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0px;
+    padding-left: 10px;
+    margin-bottom: 16px;
+    padding: auto;
+    text-align: left;
+  }
+
+  #form_header_btn {
+    background: rgba(221, 209, 209, 0.5);
+    border: none;
+    float: right;
+    width: 100px;
+    display: inline-block;
+    height: 36px;
+  }
+
+  #form_header_btn:hover {background-color: rgba(221, 209, 209, 0.75);}
+
+
+  th {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(70, 70, 70);
+  }
+
+  td {
+    padding-left: 10px;
+  }
+
+  form th {
+    border-bottom: none;
+  }
+
+  #blank_header {
+    border-bottom: none;
+  }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
   <head>
     <title>Jobsite Log - Jobs</title>
-    <link rel="stylesheet" href="/stylesheets/index.css" />
     <link rel="stylesheet" href="/stylesheets/header.css" />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
   </head>
   <body>
   <header>
@@ -29,29 +29,27 @@
         <% if (@jobsite.jobs.size > 0 && @job.nil?) || (@jobsite.jobs.size > 1 && !@job.nil?)%>
             <div id="display_list">   
                 <h2>Current Jobs</h2> 
-                <table>
+                <table width=75% style="text-align:left;">
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th>Job No.</th>
-                        <th>Job Name</th>
-                        <th>Customer</th>
-                        <th></th>
+                        <th id="blank_header" style="text-align: center;" width=0px padding=0px ></th>
+                        <th id="blank_header" style="text-align: center;" width=0px padding=0px ></th>
+                        <th style="text-align: left;">Job No.</th>
+                        <th style="text-align: left;">Job Name</th>
+                        <th style="text-align: left;">Customer</th>
                         <%@jobsite.site_areas.each do |area|%>
-                            <th><%=area.code%></th>
+                            <th style="text-align: center;"><%=area.code%></th>
                         <%end%>
                     </tr>
                     <% @jobsite.jobs.each do |job| %>
                     <tr>
-                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
-                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
-                        <td style="width:5%"><%=job.job_number%></td>
-                        <td style="width:20%"><%=job.name%></td>
-                        <td style="width:20%"><%=job.customer%></td>
-                        <td style="width:.25%" ></td>
-                            <% @jobsite.site_areas.each do |area| %>
-                                <td style="width:3.5%" ><%='X' if job.areas.include?(area)%></td>
-                            <% end %>
+                        <td style="text-align: center;" width=5px padding=0px ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
+                        <td style="text-align: center;" width=5px padding=0px ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
+                        <td style="text-align: left;" width=60px><%=job.job_number%></td>
+                        <td style="text-align: left;" width=200px><%=job.name%></td>
+                        <td style="text-align: left;" width=200px><%=job.customer%></td>
+                        <% @jobsite.site_areas.each do |area| %>
+                            <td style="text-align: center;" width=20px ><%='X' if job.areas.include?(area)%></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </table>

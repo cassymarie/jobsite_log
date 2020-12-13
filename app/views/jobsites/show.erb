@@ -5,47 +5,43 @@
 <div id="jobsite_section">
     <div id="jobsite_section_left">
         <div id = "jobsite_form">
-            <h2>Jobs   <button><a href="/jobsite/<%= @jobsite.id %>/jobs/new"><%= @jobsite.jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
+            <h2 id="form_header">Jobs<button id="form_header_btn"><a href="/jobsite/<%= @jobsite.id %>/jobs/new"><%= @jobsite.jobs.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2> 
 
             <% if @jobsite.jobs.size > 0%>
             <table>
                 <tr>
-                    <th>Job No.</th>
-                    <th>Job Name</th>
-                    <th>Customer</th>
-                    <th>        </th>
+                    <th style="text-align: left;" >Job No.</th>
+                    <th style="text-align: left;" >Job Name</th>
+                    <th style="text-align: left;">Customer</th>
                     <%@jobsite.site_areas.each do |area|%>
-                    <th><%=area.code%></th>
+                    <th style="text-align: center;" ><%=area.code%></th>
                     <%end%>
                 </tr>
-
                 <% @jobsite.jobs.each do |job| %>
                     <tr>
-                        <td><%=job.job_number%></td>
-                        <td><%=job.name%></td>
-                        <td><%=job.customer%></td>
-                        <td>        </td>
+                        <td style="text-align: left;" width=60px ><%=job.job_number%></td>
+                        <td style="text-align: left;" width=200px ><%=job.name%></td>
+                        <td style="text-align: left;" width=200px ><%=job.customer%></td>
                         <% @jobsite.site_areas.each do |area| %>
-                            <td><%='X' if job.areas.include?(area)%></td>
+                            <td style="text-align: center;" width=20px ><%='X' if job.areas.include?(area)%></td>
                         <% end %>
                     </tr>
                 <% end %>
             </table>
             <%end%>
         </div>
-        <br>
         <div id="jobsite_form">
-            <h2>Site Crew   <button><a href='/sitecrew/<%= @jobsite.id %>/new'><%= @jobsite.employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
+            <h2 id="form_header">Site Crew<button id="form_header_btn"><a href='/sitecrew/<%= @jobsite.id %>/new'><%= @jobsite.employees.size == 0 ? 'Add' : 'Add/Edit'%></a></button></h2>
             <% if @jobsite.employees.size > 0%>
             <table>
                 <tr>
-                    <th>Employee Name</th>
-                    <th>Title</th>
+                    <th style="text-align: left;" width=200px>Employee Name</th>
+                    <th style="text-align: left;" padding-left=10px;>Title</th>
                 </tr>
                 <%@jobsite.employees.each do |employee|%>
                 <tr>
-                    <td style="width:20%"><%=employee.full_name%></td>
-                    <td><%=Title.find(employee.title_id).title%></td>
+                    <td style="text-align: left;" width=200px><%=employee.full_name%></td>
+                    <td style="text-align: left;" padding-left=10px><%=Title.find(employee.title_id).title%></td>
                 </tr>
                 <%end%>
             </table>
@@ -54,9 +50,9 @@
     </div>
     <br>
     <div id="jobsite_section_right">
-        <div id="jobsite_form">
+        <div class="jobsite_form" id="jobsite_form">
             <form method="get" action="/jobsite/<%= @jobsite.id %>/time_entry/by_day">
-                <h2>Time Entry</h2>
+                <h2 id="form_header" >Time Entry</h2>
                 <% if @error %>
                     <%= "You need to enter the Week Ending to continue"%>
                 <% end %>
@@ -75,12 +71,12 @@
                 <label for="week_ending">For Week Ending (Sunday)</label>
                 <input id ="week_ending" name="week_ending" type="date" value=<%=Date.today + (Date.today.wday)%>>
                 <br><br>
-                <input type="submit" value="Edit/View">
+                <input id="submit_button" type="submit" value="Edit/View">
             </form>
         </div>
 
-        <div id="jobsite_form">
-            <h2>Tasks <button><a href='/jobsite/<%= @jobsite.id %>/tasks'>Add/Edit</a></button></h2>
+        <div  class="jobsite_form"  id="jobsite_form">
+            <h2 id="form_header">Tasks <button id="form_header_btn"><a href='/jobsite/<%= @jobsite.id %>/tasks'>Add/Edit</a></button></h2>
             <ul style="text-align:left;">
                 <% @jobsite.tasks.each do |task| %>
                 <li>[<%=task.code%>] <%=task.name%></li>

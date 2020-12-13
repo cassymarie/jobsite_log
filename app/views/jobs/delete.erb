@@ -1,5 +1,5 @@
 <div id="form">
-    <h2>Delete Job</h2>
+    <h2 id="form_header">Delete Job<button id="form_header_btn"><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button></h2>
     <h4> Are you sure you want to delete this job? <br> All associated records for this job will be deleted </h4> <br>
     <form action="/jobsite/<%= @jobsite.id %>/jobs/delete/<%=@job.id%>%" method="post">
         <input type="hidden" name="_method" value="delete">

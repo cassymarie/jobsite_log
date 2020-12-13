@@ -1,6 +1,6 @@
 <section style="display:inline-flex"> 
     <div id="form" style="width:70%">
-        <h2>Edit Jobs</h2>
+        <h2 id="form_header">Edit Job<button id="form_header_btn"><a href="/jobsite/<%= @jobsite.id %>/jobs/new">Add Job</a></button></h2>
         <form action="/jobsite/<%=@jobsite.id%>/jobs/edit/<%=@job.id%>" method="POST">
             <input type="hidden" name="_method" value="patch">
             <table>
@@ -23,8 +23,8 @@
                         <% end %>
                 </tr>
             </table>
-            <br>
-            <input type="submit" value="Update Job">
+            <br><br>
+            <input id="submit_button"  type="submit" value="Update Job">
         </form>
     </div>
     <div id="form" style="width:25%">
