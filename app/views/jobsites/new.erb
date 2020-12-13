@@ -1,21 +1,28 @@
-<h2 >My Current Jobsites</h2>
+<h2 >My Jobsites</h2>
+    <div id = "form">
+        <h2>Create New Jobsite</h3>
+        <form action="/jobsite/new" method="POST">
+            <label>Name: </label><input type="text" name="jobsite[name]">
+            <input type="submit" value="+">
+        </form>
+    </div>
 
-<div id="form">
-    <h3>Create New Jobsite</h3>
-    <form action="/jobsite/new" method="POST">
-        <label>Name: </label><input type="text" name="jobsite[name]">
-        <input type="submit" value="+">
-    </form>
-</div>
-
-<div  style="display:inline-flex;">
-    <ul>
-        <% @jobsites.each do |jobsite|%>
-        <li><div id="jobsite_card">
-            <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
-            <p><%= jobsite.jobs.count %> Current Jobs </p>
-            <p><%= jobsite.employees.count %> Site Employees </p>
-        </div></li>
-        <%end%>
-    </ul>
+<div id="display_list">
+    <% count = 1 %>
+    <% @jobsites.each do |jobsite|%>
+        <% if count == 1 %>
+            <%= '<ul id="jobsite_list">' %>
+        <% end %>
+        
+                <li id="jobsite_card">
+                    <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
+                    <p><%= jobsite.jobs.count %> Current Jobs </p>
+                    <p><%= jobsite.employees.count %> Site Employees </p>
+                </div>
+            <% count += 1 %>
+            <% if count == 4 %>
+                <%= '</ul>' %>
+                <% count = 1 %>
+            <% end %>
+    <% end %>
 </div>
