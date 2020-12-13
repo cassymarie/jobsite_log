@@ -1,9 +1,8 @@
 class TimeEntryController < ApplicationController
     get '/jobsite/:id/time_entry' do
         @jobsite = Jobsite.find(params[:id])
-        @employees = @jobsite.employees
-        @jobs = @jobsite.jobs
-        @tasks = @jobsite.tasks
+        @week_ending = params[:week_ending]
+         binding.pry
         erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
     end
 

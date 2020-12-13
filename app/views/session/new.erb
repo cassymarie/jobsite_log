@@ -2,7 +2,7 @@
     <div id="form">
     <h2>Login</h2>
     <form action="/login" method="POST">
-        <label>Email: </label><input type="text" name="user[:email]" value="<%=@email unless @email.blank?%>" required><br><br>
+        <label>Email: </label><input type="email" name="user[:email]" value="<%=@email unless @email.blank?%>" required><br><br>
         <label>Password:</label><input type="password" name="user[:password]" required><br><br>
         <label style="color:red;"><%= @error unless @error.blank? %></label><br>
         <br><input type="submit" value="Log-In User"> 

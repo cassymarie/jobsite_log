@@ -2,6 +2,7 @@
   <head>
     <title><%=@jobsite.name%> - Time Entry</title>
     <link rel="stylesheet" href="/stylesheets/index.css" />
+    <link rel="stylesheet" href="/stylesheets/time_entry.css" />
   </head>
   <body>
   <header>
@@ -18,10 +19,11 @@
             <a href="/jobsite/<%=@jobsite.id%>"><%=@jobsite.name%></a>
             <button style="float:right;"><a href="/jobsite/<%= @jobsite.id %>">X</a></button>
             </h2>
+            
 
             <%= yield %>
 
         </div>
-        <script src="../js/time_entry.js"></script>
+       <script src="/js/time_entry.js"  type="text/javascript"></script>
     </body>
 </html>

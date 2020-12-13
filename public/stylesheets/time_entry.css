@@ -1,0 +1,76 @@
+
+/* Time Entry - header day menu*/
+#day_navbar {
+    width: 100%;
+    align-items: baseline;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 16px;
+}
+
+#page_title{
+    margin-bottom: 0;
+    border-bottom: none;
+    line-height: 36px;
+    width: 30%;
+}
+
+#day_button {
+    width: inherit;
+    width: 10%;
+    height: 30px;
+}
+
+/* Time Entry - Form*/
+#form_time {
+    text-align: left
+}
+
+#wordate {
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 50px;
+}
+
+#blank_space{
+    max-width: fit-content;
+    min-width: 5px;
+}
+
+#time_entry_table{
+    max-width: 65%;
+    margin-bottom: 10px;
+    margin-left: 2.5%;
+}
+
+#employee_title{
+    width: 2%;
+}
+
+#employee_name {
+    width: 30%;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.job {
+    width: 10%;
+}
+
+.hours {
+    width: 10%;
+    min-width: 5%;
+    max-width: 20%;
+    text-align: center;
+}
+
+#hour_input {
+    width: 95%;
+}
+
+.job_select {
+    width: 95%;
+}
+
+#table_footer{
+    line-height: 24px;
+}

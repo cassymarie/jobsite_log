@@ -55,7 +55,11 @@
     <br>
     <div id="jobsite_section_right">
         <div id="jobsite_form">
-            <h2><a href='/jobsite/<%= @jobsite.id %>/time_entry'>Time Entry </h2>
+            <form method="get" action="/jobsite/<%= @jobsite.id %>/time_entry">
+                <h2>Time Entry <input style="float:right;" type="submit" value="Edit/View"> </h2>
+                <label for="week_ending">For Week Ending (Sunday)</label>
+                <input name="week_ending" type="date" required>
+            </form>
         </div>
 
         <div id="jobsite_form">
