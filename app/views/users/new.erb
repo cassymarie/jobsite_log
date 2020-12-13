@@ -1,21 +1,20 @@
-<div class="content">
-<h1>Welcome</h1>
-    <div id="form">
-        <h2>Sign-up</h2>
-        <form action="/signup" method="POST">
-            <ul>
-            <li><label>First Name</label><input type="text" name="user[first_name]" value="<%=current_user.first_name unless current_user.nil?%>" required></li><br>
-            <li><label>Last Name</label><input type="text" name="user[last_name]" value="<%=current_user.last_name unless current_user.nil?%>" required></li><br>
-            <li><label>Email</label><input type="email" name="user[email]" value="<%=current_user.email unless current_user.nil?%>" required> <label style="color:red;"><label style="color:red;"><%= @error unless @error.blank? %></label></li><br>
-            <li><label>Password</label><input type="password" name="user[password]" required></li><br>
-            </ul>
-            <input type="submit" value="Signup"> 
-        </form>
-        <form  action="/login/existing" method="get">
-            <input type="hidden" name="email" value="<%=current_user.email unless current_user.nil?%>">
-            <input type="submit" value="Log In">
-        </form>
-    </div>
-</div>
+
+<h1>Welcome to your Jobsite Log</h1>
+<h2 style="text-align:center;">Signup to continue</h2>
+    <form id="sign_in_form" action="/signup" method="POST">
+        <ul id="sign_in_list" style="text-align:right;">
+            <li><label id="sign_in_label">First Name</label><input id="sign_in_input" type="text" name="user[first_name]" value="<%=current_user.first_name unless current_user.nil?%>" required></li><br>
+            <li><label id="sign_in_label">Last Name</label><input id="sign_in_input" type="text" name="user[last_name]" value="<%=current_user.last_name unless current_user.nil?%>" required></li><br>
+            <li><label id="sign_in_label">Email</label><input id="sign_in_input" type="email" name="user[email]" value="<%=current_user.email unless current_user.nil?%>" required></li> 
+            <li><label style="color:red;"><label style="color:red;"><%= @error unless @error.blank? %></label></li>
+            <li><label id="sign_in_label">Password</label><input id="sign_in_input" type="password" name="user[password]" required></li><br>
+        </ul>
+        <input id="submit_button" type="submit" value="Signup"> 
+    </form>
+    <form  action="/login/existing" method="get">
+        <input type="hidden" name="email" value="<%=current_user.email unless current_user.nil?%>">
+        <input id="link_button" type="submit" value="Log In">
+    </form>
+
 
 

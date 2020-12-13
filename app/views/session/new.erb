@@ -1,11 +1,13 @@
-    <h1>Welcome</h1>
-    <div id="form">
-    <h2>Login</h2>
-    <form action="/login" method="POST">
-        <label>Email: </label><input type="email" name="user[:email]" value="<%=@email unless @email.blank?%>" required><br><br>
-        <label>Password:</label><input type="password" name="user[:password]" required><br><br>
+    <h1>Welcome to your Jobsite Log</h1>
+    <%# <div id="form"> %>
+    <h2 style="text-align:center;">Login to continue</h2>
+    <form id="sign_in_form"action="/login" method="POST">
+        <ul id="sign_in_list">
+            <li><label>Email: </label><input type="email" name="user[:email]" value="<%=@email unless @email.blank?%>" required></li><br>
+            <li><label>Password:</label><input type="password" name="user[:password]" required></li>
+        </ul><br>
         <label style="color:red;"><%= @error unless @error.blank? %></label><br>
-        <br><input type="submit" value="Log-In User"> 
+        <input id="submit_button" type="submit" value="Log-In"> 
     </form>
-    <br><button><a href="/signup">New User</a></button>
-    </div>
+    <button id="link_button"><a href="/signup">Sign Up</a></button>
+    <%# </div> %>
