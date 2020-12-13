@@ -34,18 +34,6 @@ Future development ideas:
 - User login will have Admin status to view all jobsites created.
 - Weekly data hours will generate time cards.
 
-Most Wanted troubleshooting [video](https://youtu.be/-iylxiLdiPk)
-
-
-## Contributing
-
-Learn.co / Flatiron Phase 2 course topics have helped through most, if not all the issues.  
-
-The following sites were a blessing to help with either the design or functionality for completion.
-
-[ASCII generator](http://www.network-science.de/ascii/) \| [Rubular](https://rubular.com/) \| [Ruby-docs/classes](https://ruby-doc.org/core-2.7.2/index.html#classes) \| [HTML tag removal](https://snippets.aktagon.com/snippets/192-removing-html-tags-from-a-string-in-ruby)
-
-Additionally, my husband helped with questions, best practices and some code reviews.
 
 ## License
 
