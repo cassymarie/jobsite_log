@@ -12,14 +12,14 @@
     </nav>
     <input type="hidden" id="day_index" value=<%=@startIndex%>>
     <!-- <form > --> 
-    
+    <% if !@workdate.nil? %>
     <div id="form_time">
     <form onkeydown="return !(event.keyCode==13)" action="/jobsite/<%=@jobsite.id%>/time_entry/new" method="post">
         <input type="hidden" value=<%=@week_ending%> name="week_ending" id="week_ending">
         <div style="display:inline-flex;" width="100%;">
             <div style="text-align:left;" width="70%">
                 <label>Workdate: </label>
-                <input id="wordate" type="text" name="workdate" required readonly>
+                <input id="wordate" type="text" name="workdate" value="<%= @workdate unless @workdate.nil? %>" required readonly>
             </div>
             <div width="100%" style="text-align:right;">
                 <label>Week Ending: <%= @week_ending unless @week_ending.nil? %></label>
@@ -97,4 +97,5 @@
         <input type="submit" value="Post Time">
     </form>
     </div>
+    <% end %>
 </div>

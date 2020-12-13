@@ -55,7 +55,7 @@
     <br>
     <div id="jobsite_section_right">
         <div id="jobsite_form">
-            <form method="get" action="/jobsite/<%= @jobsite.id %>/time_entry">
+            <form method="get" action="/jobsite/<%= @jobsite.id %>/time_entry/by_day">
                 <h2>Time Entry</h2>
                 <% if @error %>
                     <%= "You need to enter the Week Ending to continue"%>

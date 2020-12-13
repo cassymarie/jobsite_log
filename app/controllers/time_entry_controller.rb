@@ -5,6 +5,19 @@ class TimeEntryController < ApplicationController
         erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
     end
 
+    get '/jobsite/:id/time_entry/by_day' do
+        @jobsite = Jobsite.find(params[:id])
+        @week_ending = DateTime.parse(params[:week_ending]).to_date
+
+        if !params[:work_date].nil? 
+            @sub_days = params[:work_date].to_i 
+            @workdate = @week_ending - @sub_days.days
+        end
+
+        # binding.pry
+        erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
+    end
+
     post '/jobsite/:id/time_entry/new' do
         @jobsite = Jobsite.find(params[:id])
         @week_ending = DateTime.parse(params[:week_ending]).to_date
