@@ -3,15 +3,14 @@
     <input type="hidden" value=<%= @sub_days.to_i %> name="weekday">
     <nav id="day_navbar" style="display:inline-flex;">
         <h2 id="page_title">Time Entry</h2>
-        <%# <div id="days"> %>
-            <% count = 5 %> 
-            <% while count > -2 do %>
-                <button id="day_button" value=<%= count %> onclick="apply_workdate(this)" class=<%= 'current_day' unless (count + 1).to_i != @sub_days.to_i %>><%= (@week_ending - (count + 1).days).to_date.strftime("%^A")[0..2] %></button>
+            <% count = 6 %> 
+            <% while count > -1 do %>
+                <button id="day_button" value=<%= count %> onclick="apply_workdate(this)" class=<%= 'current_day' unless (count + 1).to_i != @sub_days.to_i %>><%= (@week_ending - (count).days).to_date.strftime("%^A")[0..2] %></button>
                 <% count -= 1 %> 
             <% end %>
-        <%# </div> %>
     </nav>
-    <input type="hidden" id="day_index" value=<%=@sub_days.to_i%>>
+    <!-- <form > --> 
+    <input type="text" id="day_index" value=<%=@sub_days.to_i%> onchange="apply_workdate(this)">
     <!-- <form > --> 
     <% if !@sub_days.nil? %>
     <div id="form_time">
@@ -26,7 +25,7 @@
                     <label>Week Ending: <%= @week_ending unless @week_ending.nil? %></label>
                 </div>
             </div>
-            
+            <br><br>
             <table id="time_entry_table">
                 <tr id="table_header">
                     <th id="employee_title">Title</th>
@@ -49,8 +48,8 @@
                     <td id="employee_title"><label class="hide_title"><%= Title.find(employee.title_id).title[0].upcase %></label></td>
                     <td id="employee_name"><label class="hide_name"><%= employee.full_name%></label></td>
                     <td id="button_space"><button type="button" class="add_job" onclick="my_row(this)">+</button></td>
-                    <td id="employee_job" class="job">
-                        <select id="job_numbers" class="job_select" name="entry[][employee][job_id]">
+                    <td class="employee_job" class="job">
+                        <select class="job_number" class="job_select" name="entry[][employee][job_id]">
                             <option value=""></option>
                             <%@jobsite.jobs.each do |job|%>                    
                                 <option value=<%=job.id%>><%=job.job_number%></option>
@@ -58,24 +57,24 @@
                             <option value='OUT'>OUT</option>
                             <option value='TERM'>TERM</option>
                         </select></td>
-                    <td id="employee_area" class="job">
-                        <select id="areas" class="job_select" name="entry[][employee][area_id]">
+                    <td class="employee_area" class="job">
+                        <select class="areas" class="area_select" name="entry[][employee][area_id]">
                             <option value=""></option>
                             <%@jobsite.site_areas.each do |area|%>
                                 <option value=<%=area.id%>><%=area.code%></option>
                             <%end%>
                         </select></td>
-                    <td id="employee_task" class="job">
-                        <select id="tasks" class="job_select" name="entry[][employee][task_id]">
+                    <td class="employee_task" class="job">
+                        <select class="tasks" class="task_select" name="entry[][employee][task_id]">
                             <option value=""></option>
                             <%@jobsite.tasks.each do |task|%>                    
                                 <option value=<%=task.id%>><%=task.code%></option>
                             <%end%>
                         </select></td>
                     <td id="blank_space"></td>
-                    <td id="employee_reg" class="hours"><input id="hour_input" class="reg" type="number" name="entry[][hours][reg]" step="0.25" onchange="calculate_hours()" value=""></td>
-                    <td id="employee_ot" class="hours"><input id="hour_input" class="ot" type="number" name="entry[][hours][ot]" step="0.25" onchange="calculate_hours()" value=""></td>
-                    <td id="employee_dt" class="hours"><input id="hour_input" class="dt" type="number" name="entry[][hours][dt]" step="0.25" onchange="calculate_hours()" value=""></td>
+                    <td id="employee_reg" class="hours"><input class="hour_input" class="reg" type="number" name="entry[][hours][reg]" step="0.25" onchange="calculate_hours()" value=""></td>
+                    <td id="employee_ot" class="hours"><input class="hour_input" class="ot" type="number" name="entry[][hours][ot]" step="0.25" onchange="calculate_hours()" value=""></td>
+                    <td id="employee_dt" class="hours"><input class="hour_input" class="dt" type="number" name="entry[][hours][dt]" step="0.25" onchange="calculate_hours()" value=""></td>
                     <td id="blank_space"></td>
                     <td class="employee_total" style="text-align:center;">0.00</td>
                 </tr>

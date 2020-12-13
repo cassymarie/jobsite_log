@@ -4,7 +4,7 @@ var tbl = document.getElementById('time_entry_table');
 var add_btn = document.getElementById('add_job');
 var day_btn = document.getElementById('day_button');
 var workdate = document.getElementById('workdate');
-var workday = document.getElementById('');
+var workday = document.getElementById('day_index');
 var week_ending = document.getElementById('week_ending');
 
 // function that stops the user from submitting the form when they press Enter
@@ -78,12 +78,16 @@ function calculate_hours(){
 }
 
 // nav bar - day click, adds date to work day.
-function what_day_is_it(){
-
+function what_day_is_it(btn){
+    workday.value = btn.value;
 }
 
 function apply_workdate(btn){
+
     var datediff = btn.value;
+    datediff -= 1;
+
+    console.log(datediff);
     var dayDate = new Date(week_ending.value);
     dayDate.setDate(dayDate.getDate() - datediff);
     workdate.value = dayDate.toDateString();
