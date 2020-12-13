@@ -6,12 +6,17 @@
   </head>
   <body>
   <header>
-        <nav style="float:left;">
-            <a id = "header_link" href="/logout">Log Out</a>
-            <a id = "header_link" href="/jobsites">Jobsites</a>
-            <a id = "header_link" href="/jobsite/<%=@jobsite.id%>/time_entry">Time Entry</a>
-        </nav>
-        <h4 style="float:right;"> Logged in: <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%> </h4>
+            <div class="dropdown" style="float:left;">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content" style="left:0;">
+                  <% unless @jobsite.nil? %>
+                      <a href="/jobsites">Jobsites</a>
+                  <% end %>
+                  <a href="/logout">Log Out</a>
+                </div>
+              </div>
+
+              <div  id="headerWelcome"> Welcome, <%=current_user.first_name%> <%=current_user.last_name[0].capitalize%>!</div>
   </header>
 
         <div class="main_page">
