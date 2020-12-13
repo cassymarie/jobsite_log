@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'faker'
+gem 'date'
 gem 'dates_from_string', '~> 1.3'
 
 group :test do

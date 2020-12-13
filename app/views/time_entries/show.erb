@@ -2,22 +2,24 @@
 <div id="display_list">
     <nav id="day_navbar" style="display:inline-flex;">
         <h2 id="page_title">Time Entry</h2>
-        <button id="day_button" value=1 onclick="apply_workdate(this)">mon</button>
-        <button id="day_button" value=2 onclick="apply_workdate(this)">tue</button>
+        <button id="day_button" value=5 onclick="apply_workdate(this)">mon</button>
+        <button id="day_button" value=4 onclick="apply_workdate(this)">tue</button>
         <button id="day_button" value=3 onclick="apply_workdate(this)">wed</button>
-        <button id="day_button" value=4 onclick="apply_workdate(this)">thu</button>
-        <button id="day_button" value=5 onclick="apply_workdate(this)">fri</button>
-        <button id="day_button" value=6 onclick="apply_workdate(this)">sat</button>
-        <button id="day_button" value=0 onclick="apply_workdate(this)">sun</button>
+        <button id="day_button" value=2 onclick="apply_workdate(this)">thu</button>
+        <button id="day_button" value=1 onclick="apply_workdate(this)">fri</button>
+        <button id="day_button" value=0 onclick="apply_workdate(this)">sat</button>
+        <button id="day_button" value=-1 onclick="apply_workdate(this)">sun</button>
     </nav>
-    <!-- <form > -->
+    <input type="hidden" id="day_index" value=<%=@startIndex%>>
+    <!-- <form > --> 
     <div id="form_time">
-    <form onkeydown="return !(event.keyCode==13)" action="/jobsite/<%=@jobsite.id%>/new" method="post">
-        <input type="hidden" value=<%=@jobsite.id%> name="jobsite_id">
+    <form onkeydown="return !(event.keyCode==13)" action="/jobsite/<%=@jobsite.id%>/time_entry/new" method="post">
+        <input type="hidden" value=<%=@week_ending%> name="week_ending" id="week_ending">
+        <input type="hidden" value=<%=@week_ending%> name="week_ending" id="week_ending">
         <div style="display:inline-flex;" width="100%;">
             <div style="text-align:left;" width="70%">
                 <label>Workdate: </label>
-                <input id="wordate" type="text" name=entry[][workdate]>
+                <input id="wordate" type="text" name="entry[][employee][workdate]" disabled>
             </div>
             <div width="100%" style="text-align:right;">
                 <label>Week Ending: <%= @week_ending unless @week_ending.nil? %></label>
@@ -41,7 +43,8 @@
             </tr>
                 <% @jobsite.employees.each do |employee| %>
             <tr id="employee_entry" class="job">
-                <input type="hidden" name="entry[][employee][id]">
+                <input type="hidden" name="entry[][employee][jobsite_id]" value="<%= employee.id %>">
+                <input type="hidden" name="entry[][employee][employee_id]" value="<%= employee.id %>">
                 <td id="employee_title"><label class="hide_title"><%= Title.find(employee.title_id).title[0].upcase %></label></td>
                 <td id="employee_name"><label class="hide_name"><%= employee.full_name%></label></td>
                 <td id="button_space"><button type="button" class="add_job" onclick="my_row(this)">+</button></td>

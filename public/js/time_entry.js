@@ -77,5 +77,10 @@ function calculate_hours(){
 // day_btn.addEventListener('click', apply_workdate);
 
 function apply_workdate(btn){
-    console.log(btn.value);
+    var datediff = btn.value;
+    var wordate = document.getElementById('wordate');
+    var week_ending = document.getElementById('week_ending');
+    var dayDate = new Date(week_ending.value);
+    dayDate.setDate(dayDate.getDate() - datediff);
+    wordate.value = dayDate.toDateString();
 }
