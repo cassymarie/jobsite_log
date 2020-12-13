@@ -1,55 +1,52 @@
-# Jobsite Time Entry (Sinatra Assessment)
+# Jobsite Log (Sinatra)
 
-Sinatra app that will setup a Jobsite that will track multiple jobs and the hours worked by each employee.  The Jobsite will have multiple jobs that will be worked on by many employees.  Each Job will have many areas and many tasks.  Each employee can work on many jobs, in many areas and do many tasks in each area.
+This sinatra app will setup a Jobsite that will track multiple jobs, tasks and their employees.  The Jobsite will have multiple jobs that will be worked on by many employees.  Each Job will have many areas and many tasks.  Each employee can work on many jobs, in many areas and do many tasks in each area.
 
-## User Story
+## Installation
 
-***As a User...***
-I should be able to access my jobsites only once I login.
-I want to have a list to track the employees on my Jobsite and which Job/Area/Task they work on each day A User should be able to...
+1. Clone the jobsite log: `git clone 'https://github.com/cassymarie/jobsite_log'`
+2. Go into the cli directory `jobsite_log`
+3. Run `bundle install`
+4. Run `shotgun`
+5. Open your browser and go to the local server: `http://localhost:9393/`
 
-***A user should be able to...***
-Add/Remove both Jobs and Employees to my jobsite.
-Specify the Job/Area/Task that my employee worked on and for how long.
-Generate the total hours worked for both: Individual employee and Each Job
+## Usage
 
-## Project Design
+In order to use the jobsite_log, users will need to login or signup.  Follow the prompt sign-in screen to get access to your jobsites.
 
-### MVP
+Once a user is signed in, they will be taken to the jobsite dashboard which shows all the jobsite the user has setup.  By clicking on the specific jobsite name, the user will be taken to that jobsite dashboard page where they can add/edit specific jobs, employees, site tasks and more.  
 
-- [x] User Signup
-- [x] User Login - has access to only individual jobsite
-- [x] Can create a new Jobsite
-- [x] Can create a Job that belongs to the Jobsite
-- [x] Can setup areas for specific job
-- [x] Can setup tasks for the jobsite (to be used on all areas)
-- [x] User can add employees to the jobsite
+For each category, there is an Add/Edit button to navigate to that categories add page.  The user can also select the delete/edit button next to the individual record to modify.  
 
-### Stretch Goals
+Navigation buttons are located in the corners of each section to navigate between categories and jobsites. 
 
-- [ ] Can create a daily report by employee title
-- [ ] User can remove employees from jobsite - only if 0 hours worked that week
-- [ ] User can list and employee on a specific job/area, doing a specific task - for a certain length of time (hours)
-- [ ] User can view the list of total hours worked by individual/job
-- [ ] Create custom validations
+Additionally, there is the Time Entry form - that allows the user to enter in time worked by job/task/area for each individual.  *Currently, this will add the records to database, however no information is used after this.*
 
-## Specifications for Assessment
+## Development
 
-- [x] Use Sinatra to build the app
-- [x] Use ActiveRecord for storing information in a database
-- [x] Include more than one model class (e.g. User, Post, Category)
-- [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-- [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
-- [x] Include user accounts with unique login attribute (username or email)
-- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [x] Ensure that users can't modify content created by other users
-- [x] Include user input validations
-- [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+All work has been completed on the `origin-master` branch.  Multiple commits have been made throughout the development of the app.  
 
-Confirm
+Future development ideas:  
 
-- [x] You have a large number of small Git commits
-- [x] Your commit messages are meaningful
-- [x] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- Total hours can be represented on the Dashboard page
+- Daily time entry will generate reports by job
+- Delete function will not remove records belonging in current jobsite time_entries, it will simply change to an inactive status until the jobsite is deleted.
+- User login will have Admin status to view all jobsites created.
+- Weekly data hours will generate time cards.
+
+Most Wanted troubleshooting [video](https://youtu.be/-iylxiLdiPk)
+
+
+## Contributing
+
+Learn.co / Flatiron Phase 2 course topics have helped through most, if not all the issues.  
+
+The following sites were a blessing to help with either the design or functionality for completion.
+
+[ASCII generator](http://www.network-science.de/ascii/) \| [Rubular](https://rubular.com/) \| [Ruby-docs/classes](https://ruby-doc.org/core-2.7.2/index.html#classes) \| [HTML tag removal](https://snippets.aktagon.com/snippets/192-removing-html-tags-from-a-string-in-ruby)
+
+Additionally, my husband helped with questions, best practices and some code reviews.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
