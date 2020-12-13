@@ -35,6 +35,8 @@ class JobsiteController < ApplicationController
 
     post '/jobsite/new' do
         jobsite = Jobsite.create(params[:jobsite])
+        jobsite.tasks << Task.new(:code => "299", :name => "General Labor")
+        jobsite.tasks << Task.new(:code => "275", :name => "Job Travel")
         current_user.jobsites << jobsite
         redirect '/jobsites'
     end
