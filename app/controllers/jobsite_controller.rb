@@ -12,6 +12,20 @@ class JobsiteController < ApplicationController
         erb :'jobsites/new', :layout => :'layouts/layout_jobsite'
     end
 
+    get '/jobsite/edit/:id' do
+        redirect '/error' if !logged_in? 
+        @jobsites = current_user.jobsites
+        @jobsite = Jobsite.find(params[:id])
+        erb :'jobsites/edit', :layout => :'layouts/layout_jobsite'
+    end
+
+    get '/jobsite/delete/:id' do
+        redirect '/error' if !logged_in? 
+        @jobsites = current_user.jobsites
+        @jobsite = Jobsite.find(params[:id])
+        erb :'jobsites/edit', :layout => :'layouts/layout_jobsite'
+    end
+
     get '/jobsite/:id' do 
         redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])
@@ -25,5 +39,11 @@ class JobsiteController < ApplicationController
         redirect '/jobsites'
     end
 
+    patch '/jobsite/edit/:id' do
+        jobsite = Jobsite.find(params[:id])
+        jobsite.name = params[:jobsite][:name]
+        jobsite.save
+        redirect '/jobsites'
+    end
 
 end

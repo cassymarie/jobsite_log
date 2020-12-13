@@ -1,26 +1,26 @@
 <h2 id="sub_header">
     <a href="/jobsites">My Jobsites</a>
-    <button id="back_button" style="float:right;"><a href="/jobsites">X</a></button>
+    <button  id="subheader_button"><a href="/jobsites">Back</a></button>
 </h2>
 
 <div id="form">
-<h2>Add Jobsite </h2>
-    <div id = "form">
-        <h2>Create New Jobsite</h3>
+    <h2>Add Jobsite </h2>
         <form action="/jobsite/new" method="POST">
-            <label>Name: </label><input type="text" name="jobsite[name]">
+            <label>New site name: </label><input type="text" name="jobsite[name]" required>
             <input type="submit" value="+">
-        </form>
-    </div>
-
-<div id="display_list">
-   <ul style="display:inline-flex;">
-        <% @jobsites.each do |jobsite|%>
-            <li id="jobsite_card" >
-                <h3><a href="/jobsite/<%=jobsite.id%>"><%= jobsite.name %></a></h3>
-                <p><%= jobsite.jobs.count %> Current Jobs </p>
-                <p><%= jobsite.employees.count %> Site Employees </p>
-            </li>
+        </form><br><br>
+        <% if @jobsites.size > 0 %>
+            <div id="display_list">   
+                <h2>My Jobsites</h2> 
+                <table>
+                    <%@jobsites.each do |jobsite|%>
+                        <tr>
+                            <td  style="width:1%" ><button><a href="/jobsite/delete/<%= jobsite.id %>">X</a></button></td>
+                            <td  style="width:1%" ><button><a href="/jobsite/edit/<%= jobsite.id %>">...</a></button></td>
+                            <td padding-left=10px; style="text-align:left;"><%=jobsite.name%></td>
+                        </tr>
+                    <%end%>
+                </table>
+            </div>
         <%end%>
-    </ul>
 </div>
