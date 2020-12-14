@@ -60,8 +60,15 @@
     min-width: 5px;
 }
 
+#button_space{
+    max-width: fit-content;
+    min-width: 5px;  
+    margin: 0px;
+    text-align: right;
+}
+
 #time_entry_table{
-    max-width: 75%;
+    max-width: 60%;
     margin-bottom: 10px;
     margin-left: 2.5%;
 }
@@ -76,19 +83,27 @@
     padding-left: 5px;
 }
 
+#employee_job {
+    width: 5%;
+    text-align: center;
+    padding-left: 5px;
+}
+
 .job {
     width: 10%;
 }
 
-.hours {
-    width: 10%;
-    min-width: 5%;
-    max-width: 20%;
+.dropdown {
+    width: 100%;
+}
+
+#hours {
+    width: 5%;
     text-align: center;
 }
 
-.hour_input {
-    width: 95%;
+#hour_input {
+    width: 10%;
 }
 
 .job_select {

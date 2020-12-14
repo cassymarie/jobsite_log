@@ -42,8 +42,8 @@
                     </tr>
                     <% @jobsite.jobs.each do |job| %>
                     <tr>
-                        <td id="blankcell" style="text-align: center;" width=5px padding=0px ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
-                        <td id="blankcell"  style="text-align: center;" width=5px padding=0px ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
+                        <td id="blankcell" ><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
+                        <td id="blankcell"><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
                         <td style="text-align: left;" width=60px><%=job.job_number%></td>
                         <td style="text-align: left;" width=200px><%=job.name%></td>
                         <td style="text-align: left;" width=200px><%=job.customer%></td>

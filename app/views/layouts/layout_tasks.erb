@@ -26,21 +26,21 @@
             <%= yield %>
 
             <% if @jobsite.tasks.size > 0 %>
-            <div id="display_list">   
+            <div id="display_list" width=50% style="text-align:center;">   
                 <h2>Jobsite Tasks</h2> 
-                <table>
+                <table id="tbl_list_job"  width=45% style="text-align:left;">
                     <tr>
-                        <th></th>
-                        <th></th>
+                        <th id="blank_header"></th>
+                        <th id="blank_header"></th>
                         <th>Code</th>
                         <th>Description</th>
                     </tr>
                     <% @jobsite.tasks.each do |task| %>
                     <tr>
-                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/task/delete/<%= task.id %>">X</a></button></td>
-                        <td  style="width:1%" ><button><a href="/jobsite/<%= @jobsite.id %>/task/edit/<%= task.id %>">...</a></button></td>
-                        <td style="width:5%"><%=task.code%></td>
-                        <td style="width:20%"><%=task.name%></td>
+                        <td id="blankcell" width=5px><button><a href="/jobsite/<%= @jobsite.id %>/task/delete/<%= task.id %>">X</a></button></td>
+                        <td id="blankcell" width=5px><button><a href="/jobsite/<%= @jobsite.id %>/task/edit/<%= task.id %>">...</a></button></td>
+                        <td style="text-align: left;" width=40px><%=task.code%></td>
+                        <td  style="text-align: left;" width=200px><%=task.name%></td>
                     </tr>
                     <% end %>
                 </table>

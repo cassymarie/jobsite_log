@@ -18,17 +18,14 @@
     <div id="form_time">
         <form onkeydown="return !(event.keyCode==13)" action="/jobsite/<%=@jobsite.id%>/time_entry/new" method="post">
             <input type="hidden" value=<%=@week_ending%> name="week_ending" id="week_ending">
-            <div style="display:inline-flex;" width="100%;">
-                <div style="text-align:left;" width="70%">
-                    <label>Workdate: </label>
-                    <input id="workdate" type="text" name="workdate" value="<%= @workdate unless @workdate.nil? %>" required readonly>
-                </div>
-                <div width="100%" style="text-align:right;">
+            <div>
+                    <label>Workdate: 
+                    <input id="workdate" type="text" name="workdate" value="<%= @workdate unless @workdate.nil? %>" required readonly></label>
                     <label style="float:right;">Week Ending: <%= @week_ending unless @week_ending.nil? %></label>
-                </div>
             </div>
-            <br><br>
+            <br>
             <table id="time_entry_table">
+                <thead>
                 <tr id="table_header">
                     <th id="employee_title">Title</th>
                     <th id="employee_name">Name</th>
@@ -43,61 +40,73 @@
                     <th id="blank_space"></th>
                     <th class="hours">Total</th>
                 </tr>
+                </thead>
+                <tbody>
                     <% @jobsite.employees.each do |employee| %>
-                <tr id="employee_entry" class="job">
-                    <input type="hidden" name="entry[][employee][jobsite_id]" value="<%= @jobsite.id %>">
-                    <input type="hidden" name="entry[][employee][employee_id]" value="<%= employee.id %>">
-                    <td id="employee_title"><label class="hide_title"><%= Title.find(employee.title_id).title[0].upcase %></label></td>
-                    <td id="employee_name"><label class="hide_name"><%= employee.full_name%></label></td>
-                    <td id="button_space"><button type="button" class="add_job" onclick="my_row(this)">+</button></td>
-                    <td class="employee_job" class="job">
-                        <select class="job_number" class="job_select" name="entry[][employee][job_id]">
-                            <option value=""></option>
-                            <%@jobsite.jobs.each do |job|%>                    
-                                <option value=<%=job.id%>><%=job.job_number%></option>
-                            <%end%>
-                            <option value='OUT'>OUT</option>
-                            <option value='TERM'>TERM</option>
-                        </select></td>
-                    <td class="employee_area" class="job">
-                        <select class="areas" class="area_select" name="entry[][employee][area_id]">
-                            <option value=""></option>
-                            <%@jobsite.site_areas.each do |area|%>
-                                <option value=<%=area.id%>><%=area.code%></option>
-                            <%end%>
-                        </select></td>
-                    <td class="employee_task" class="job">
-                        <select class="tasks" class="task_select" name="entry[][employee][task_id]">
-                            <option value=""></option>
-                            <%@jobsite.tasks.each do |task|%>                    
-                                <option value=<%=task.id%>><%=task.code%></option>
-                            <%end%>
-                        </select></td>
-                    <td id="blank_space"></td>
-                    <td id="employee_reg" class="hours"><input class="reg" id="hour_input" type="number" name="entry[][hours][reg]" step="0.25" onchange="calculate_hours()" value=""></td>
-                    <td id="employee_ot" class="hours"><input class="ot" id="hour_input" type="number" name="entry[][hours][ot]" step="0.25" onchange="calculate_hours()" value=""></td>
-                    <td id="employee_dt" class="hours"><input class="dt"  id="hour_input" type="number" name="entry[][hours][dt]" step="0.25" onchange="calculate_hours()" value=""></td>
-                    <td id="blank_space"></td>
-                    <td class="employee_total" style="text-align:center;">0.00</td>
-                </tr>
+                    <tr id="employee_entry">
+                        <input type="hidden" name="entry[][employee][jobsite_id]" value="<%= @jobsite.id %>">
+                        <input type="hidden" name="entry[][employee][employee_id]" value="<%= employee.id %>">
+                        <td id="employee_title"><label class="hide_title"><%= Title.find(employee.title_id).title[0].upcase %></label></td>
+                        <td id="employee_name"><label class="hide_name" id="employee_name"><%= employee.full_name%></label></td>
+                        <td id="button_space"><button type="button" class="add_job" id="button_space" onclick="my_row(this)">+</button></td>
+                        <td id="employee_job" class="job">
+                            <select class="dropdown" class="job_select" name="entry[][employee][job_id]">
+                                <option value=""></option>
+                                <%@jobsite.jobs.each do |job|%>                    
+                                    <option value=<%=job.id%>><%=job.job_number%></option>
+                                <%end%>
+                                <option value='OUT'>OUT</option>
+                                <option value='TERM'>TERM</option>
+                            </select></td>
+                        <td id="employee_area" class="job">
+                            <select class="dropdown" class="area_select" name="entry[][employee][area_id]">
+                                <option value=""></option>
+                                <%@jobsite.site_areas.each do |area|%>
+                                    <option value=<%=area.id%>><%=area.code%></option>
+                                <%end%>
+                            </select></td>
+                        <td id="employee_task" class="job">
+                            <select class="dropdown" class="task_select" name="entry[][employee][task_id]">
+                                <option value=""></option>
+                                <%@jobsite.tasks.each do |task|%>                    
+                                    <option value=<%=task.id%>><%=task.code%></option>
+                                <%end%>
+                            </select></td>
+                        <td id="blank_space"></td>
+                        <td id="hours">
+                            <input id="hour_input" class="reg" type="number" name="entry[][hours][reg]" step="0.25" onchange="calculate_hours()" value="">
+                        </td>
+                        <td id="hours">
+                            <input id="hour_input" class="ot" type="number" name="entry[][hours][ot]" step="0.25" onchange="calculate_hours()" value="">
+                        </td>
+                        <td id="hours">
+                            <input id="hour_input" class="dt" type="number" name="entry[][hours][dt]" step="0.25" onchange="calculate_hours()" value="">
+                        </td>
+                        <td id="blank_space"></td>
+                        <td class="employee_total" style="text-align:center;">0.00</td>
+                    </tr>
                     <% end %>
-                <tr id="table_footer">
-                    <th id="employee_title"></th>
-                    <th id="employee_name"></th>
-                    <th id="blank_space"></th>
-                    <th class="job"></th>
-                    <th class="job"></th>
-                    <th class="job"></th>
-                    <th id="blank_space">Total: </th>
-                    <th class="hours" id="reg_total"></th>
-                    <th class="hours" id="ot_total"></th>
-                    <th class="hours" id="dt_total"></th>
-                    <th id="blank_space"></th>
-                    <th id="daily_total"></th>
-                </tr>  
+                </tbody>
+                <tfoot>              
+                    <tr id="table_footer">
+                        <th id="employee_title"></th>
+                        <th id="employee_name"></th>
+                        <th id="blank_space"></th>
+                        <th class="job"></th>
+                        <th class="job"></th>
+                        <th class="job"></th>
+                        <th id="blank_space">Total: </th>
+                        <th class="hours" id="reg_total"></th>
+                        <th class="hours" id="ot_total"></th>
+                        <th class="hours" id="dt_total"></th>
+                        <th id="blank_space"></th>
+                        <th id="daily_total"></th>
+                    </tr>
+                </tfoot>  
             </table>
             <input type="submit" value="Post Time">
         </form>
     </div>
     <% end %>
+    <%= @message unless @message.blank? || @message.nil? %>
 </div>
