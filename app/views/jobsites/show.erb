@@ -17,7 +17,7 @@
                     <th style="text-align: center;" ><%=area.code%></th>
                     <%end%>
                 </tr>
-                <% @jobsite.jobs.each do |job| %>
+                <% @jobsite.jobs.sort_by{|j| j.job_number}.each do |job| %>
                     <tr>
                         <td style="text-align: left;" width=60px ><%=job.job_number%></td>
                         <td style="text-align: left;" width=200px ><%=job.name%></td>
@@ -38,7 +38,7 @@
                     <th style="text-align: left;" width=200px>Employee Name</th>
                     <th style="text-align: left;" padding-left=10px;>Title</th>
                 </tr>
-                <%@jobsite.employees.each do |employee|%>
+                <%@jobsite.employees.sort_by{|e| e.last_name}.each do |employee|%>
                 <tr>
                     <td style="text-align: left;" width=200px><%=employee.full_name%></td>
                     <td style="text-align: left;" padding-left=10px><%=Title.find(employee.title_id).title%></td>
@@ -78,7 +78,7 @@
         <div  class="jobsite_form"  id="jobsite_form">
             <h2 id="form_header">Tasks <button id="form_header_btn"><a href='/jobsite/<%= @jobsite.id %>/tasks'>Add/Edit</a></button></h2>
             <ul style="text-align:left;">
-                <% @jobsite.tasks.each do |task| %>
+                <% @jobsite.tasks.sort_by{|t| t.code}.each do |task| %>
                 <li>[<%=task.code%>] <%=task.name%></li>
                 <%end%>
             </ul>

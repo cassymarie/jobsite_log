@@ -35,7 +35,7 @@
                         <th>Code</th>
                         <th>Description</th>
                     </tr>
-                    <% @jobsite.tasks.each do |task| %>
+                    <% @jobsite.tasks.sort_by{|t| t.code}.each do |task| %>
                     <tr>
                         <td id="blankcell" width=5px><button><a href="/jobsite/<%= @jobsite.id %>/task/delete/<%= task.id %>">X</a></button></td>
                         <td id="blankcell" width=5px><button><a href="/jobsite/<%= @jobsite.id %>/task/edit/<%= task.id %>">...</a></button></td>

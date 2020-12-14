@@ -42,7 +42,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <% @jobsite.employees.each do |employee| %>
+                    <% @jobsite.employees.sort_by{|e| e.last_name}.each do |employee| %>
                     <tr id="employee_entry">
                         <input type="hidden" name="entry[][employee][jobsite_id]" value="<%= @jobsite.id %>">
                         <input type="hidden" name="entry[][employee][employee_id]" value="<%= employee.id %>">
@@ -52,7 +52,7 @@
                         <td id="employee_job" class="job">
                             <select class="dropdown" class="job_select" name="entry[][employee][job_id]">
                                 <option value=""></option>
-                                <%@jobsite.jobs.each do |job|%>                    
+                                <%@jobsite.jobs.sort_by{|j| j.job_number}.each do |job|%>                    
                                     <option value=<%=job.id%>><%=job.job_number%></option>
                                 <%end%>
                                 <option value='OUT'>OUT</option>
@@ -61,14 +61,14 @@
                         <td id="employee_area" class="job">
                             <select class="dropdown" class="area_select" name="entry[][employee][area_id]">
                                 <option value=""></option>
-                                <%@jobsite.site_areas.each do |area|%>
+                                <%@jobsite.site_areas.sort_by{|a| a.code}.each do |area|%>
                                     <option value=<%=area.id%>><%=area.code%></option>
                                 <%end%>
                             </select></td>
                         <td id="employee_task" class="job">
                             <select class="dropdown" class="task_select" name="entry[][employee][task_id]">
                                 <option value=""></option>
-                                <%@jobsite.tasks.each do |task|%>                    
+                                <%@jobsite.tasks.sort_by{|a| a.code}.each do |task|%>                    
                                     <option value=<%=task.id%>><%=task.code%></option>
                                 <%end%>
                             </select></td>

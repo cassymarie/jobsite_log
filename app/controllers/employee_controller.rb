@@ -35,10 +35,10 @@ class EmployeesController < ApplicationController
         jobsite = Jobsite.find(params[:jobsite][:id].to_i)
         employee.jobsites << jobsite
         employee.save
-        redirect "/jobsite/#{jobsite.id}"
+        redirect "/jobsite/#{jobsite.id}/new"
     end
 
-    post '/employee/edit/:id' do
+    patch '/employee/edit/:id' do
         jobsite = params[:jobsite][:id]
         employee = Employee.find(params[:id])
         new_info = params[:employee]

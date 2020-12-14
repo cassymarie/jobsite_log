@@ -36,7 +36,7 @@
                             <th style="text-align: left;">Title</th>
                         </tr>
                     
-                    <%@jobsite.employees.each do |employee|%>
+                    <%@jobsite.employees.sort_by{|e| e.last_name}.each do |employee|%>
                         <tr>
                             <td id="blankcell" style="text-align: right;" width=5px><button id="delete_employee"><a href="/sitecrew/<%=@jobsite.id%>/delete/<%=employee.id%>">X</a></button></td>
                             <td  id="blankcell" style="text-align: left;" width=5px><button id="edit_employee"><a href="/sitecrew/<%=@jobsite.id%>/edit/<%=employee.id%>">...</a></button></td>

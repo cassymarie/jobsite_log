@@ -36,11 +36,11 @@
                         <th style="text-align: left;">Job No.</th>
                         <th style="text-align: left;">Job Name</th>
                         <th style="text-align: left;">Customer</th>
-                        <%@jobsite.site_areas.each do |area|%>
+                        <%@jobsite.site_areas.sort_by{|a| a.code}.each do |area|%>
                             <th style="text-align: center;"><%=area.code%></th>
                         <%end%>
                     </tr>
-                    <% @jobsite.jobs.each do |job| %>
+                    <% @jobsite.jobs.sort_by{|j| j.job_number}.each do |job| %>
                     <tr>
                         <td  id="blankcell" style="text-align: right;" width=5px><button><a href="/jobsite/<%= @jobsite.id %>/jobs/delete/<%= job.id %>">X</a></button></td>
                         <td id="blankcell" style="text-align: right;" width=5px><button><a href="/jobsite/<%= @jobsite.id %>/jobs/edit/<%= job.id %>">...</a></button></td>
