@@ -92,18 +92,18 @@
     width: 10%;
 }
 
+.hours {
+    width: 10%;
+}
+
+#hours input {
+    width: 10%;
+}
+
 .dropdown {
     width: 100%;
 }
 
-/* #hours {
-    width: 5%;
-    text-align: center;
-}
-
-#hour_input {
-    width: 10%;
-} */
 
 .job_select {
     width: 95%;
@@ -117,8 +117,4 @@
     margin: 0;
     padding: 0;
     width: 100%;
-}
-
-td input {
-    width: 95%;
 }

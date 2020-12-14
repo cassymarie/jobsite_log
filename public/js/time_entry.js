@@ -1,6 +1,6 @@
 'use strict';
 
-var tbl = document.getElementById('time_entry_table');
+var tbl = document.getElementById('daily_entry');
 var add_btn = document.getElementById('add_job');
 var day_btn = document.getElementById('day_button');
 var workdate = document.getElementById('workdate');
@@ -59,17 +59,25 @@ function calculate_hours(){
     for(var r = 1; r < tbl.rows.length - 1; r++){
         var row = tbl.rows[r];
         
-        console.log(row.getElementsByClassName("reg")[0].value);
-        var reg_val = hours(row.getElementsByClassName("reg")[0].value);
-        var ot_val = hours(row.getElementsByClassName("ot")[0].value);
-        var dt_val = hours(row.getElementsByClassName("dt")[0].value);
+        var reg = row.getElementsByClassName("reg")[0]
+        var ot = row.getElementsByClassName("ot")[0]
+        var dt = row.getElementsByClassName("dt")[0]
+
+        var reg_val = hours(reg.value);
+        var ot_val = hours(ot.value);
+        var dt_val = hours(dt.value);
+
+        if (reg_val > 0){reg.value = reg_val.toFixed(2)};
+        if (ot_val > 0){ot.value = ot_val.toFixed(2)};
+        if (dt_val > 0){dt.value = dt_val.toFixed(2)};
+
 
         var total = reg_val + ot_val  + dt_val ;
 
         grand_reg += reg_val;
         grand_ot += ot_val;
         grand_dt += dt_val;
-
+        
         row.getElementsByClassName("employee_total")[0].innerText = total.toFixed(2);
 
         grand_total += total;
