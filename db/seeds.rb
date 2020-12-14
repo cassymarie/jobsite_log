@@ -10,3 +10,4 @@
 # 25.times do 
 #     Job.create(job_number:rand(4501..9998), name: Faker::App.name, customer: Faker::Company.name, jobsite_id:rand(1..15))
 # end
+

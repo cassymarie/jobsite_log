@@ -21,7 +21,7 @@
                     <tr>
                         <td style="text-align: left;" width=60px ><%=job.job_number%></td>
                         <td style="text-align: left;" width=200px ><%=job.name%></td>
-                        <td style="text-align: left;" width=200px ><%=job.customer%></td>
+                        <td style="text-align: left;" width=250px ><%=job.customer%></td>
                         <% @jobsite.site_areas.each do |area| %>
                             <td style="text-align: center;" width=20px ><%='X' if job.areas.include?(area)%></td>
                         <% end %>

@@ -2,14 +2,14 @@
     <h2>Add Task</h2>
     <form action="/task/new" method="post">
         <%# <input id="hidden" type="hidden" name="_method" value="patch"> %>
-        <table>
+        <table width=50% style="text-align: left;">
             <tr>
                 <th>Code</th>
                 <th>Description</th>
             </tr>
             <tr>  
-                <td><input type="text" name="task[code]"  maxlength="3"  required></td> 
-                <td><input type="text" name="task[name]" required></td>
+                <td style="text-align: left;" width=60px ><input width=60px type="text" name="task[code]"  maxlength="3"  required></td> 
+                <td style="text-align: left;" width=200px ><input width=100% type="text" name="task[name]" required></td>
             </tr>            
         </table>
         <br>

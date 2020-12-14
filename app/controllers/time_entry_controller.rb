@@ -16,25 +16,24 @@ class TimeEntryController < ApplicationController
             @sub_days = params[:work_date].to_i 
             @workdate = @week_ending - @sub_days.days
         end
-
-        # binding.pry
+        @posted = false
         erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
     end
 
     post '/jobsite/:id/time_entry/new' do
         @jobsite = Jobsite.find(params[:id])
         @week_ending = DateTime.parse(params[:week_ending]).to_date
-        workdate = DateTime.parse(params[:workdate]).to_date
+        @workdate = DateTime.parse(params[:workdate]).to_date
         employee_entry = params[:entry]
             employee_entry.each do |entry|
                 employee = entry[:employee]
                 hours = entry[:hours]
                     type = 1
                     hours.each do |k,v|
-                        if !v=""
+                        if !v==""
                             binding.pry
                             post = TimeEntry.create(employee)
-                            post.workdate = workdate
+                            post.workdate = @workdate
                             post.hours = v.to_f
                             post.type_id = type
                             post.save

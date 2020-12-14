@@ -96,7 +96,6 @@ function apply_workdate(){
     dayDate.setDate(dayDate.getDate() - datediff);
     workdate.value = dayDate.toDateString();
 }
-
 apply_workdate();
 
 
