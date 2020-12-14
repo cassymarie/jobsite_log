@@ -54,8 +54,12 @@ function calculate_hours(){
     var grand_ot = 0;
     var grand_dt = 0;
 
+    console.log(tbl.rows.length);
+
     for(var r = 1; r < tbl.rows.length - 1; r++){
         var row = tbl.rows[r];
+        
+        console.log(row.getElementsByClassName("reg")[0].value);
         var reg_val = hours(row.getElementsByClassName("reg")[0].value);
         var ot_val = hours(row.getElementsByClassName("ot")[0].value);
         var dt_val = hours(row.getElementsByClassName("dt")[0].value);
@@ -88,8 +92,6 @@ function apply_workdate(){
 
     var datediff = workday.value;
     datediff -= 1;
-
-    console.log(datediff);
     var dayDate = new Date(week_ending.value);
     dayDate.setDate(dayDate.getDate() - datediff);
     workdate.value = dayDate.toDateString();
