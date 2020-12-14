@@ -47,7 +47,7 @@
                         <input type="hidden" name="entry[][employee][jobsite_id]" value="<%= @jobsite.id %>">
                         <input type="hidden" name="entry[][employee][employee_id]" value="<%= employee.id %>">
                         <td id="employee_title"><label class="hide_title"><%= Title.find(employee.title_id).title[0].upcase %></label></td>
-                        <td id="employee_name"><label class="hide_name" id="employee_name"><%= employee.full_name%></label></td>
+                        <td id="employee_name" width=250px><label class="hide_name"><%= employee.full_name%></label></td>
                         <td id="button_space"><button type="button" class="add_job" id="button_space" onclick="my_row(this)">+</button></td>
                         <td id="employee_job" class="job">
                             <select class="dropdown" class="job_select" name="entry[][employee][job_id]">
@@ -73,13 +73,13 @@
                                 <%end%>
                             </select></td>
                         <td id="blank_space"></td>
-                        <td id="hours">
+                        <td id="hours" width=50px>
                             <input id="hour_input" class="reg" type="number" name="entry[][hours][reg]" step="0.25" onchange="calculate_hours()" value="">
                         </td>
-                        <td id="hours">
+                        <td id="hours" width=50px>
                             <input id="hour_input" class="ot" type="number" name="entry[][hours][ot]" step="0.25" onchange="calculate_hours()" value="">
                         </td>
-                        <td id="hours">
+                        <td id="hours" width=50px>
                             <input id="hour_input" class="dt" type="number" name="entry[][hours][dt]" step="0.25" onchange="calculate_hours()" value="">
                         </td>
                         <td id="blank_space"></td>

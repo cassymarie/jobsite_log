@@ -41,7 +41,7 @@ class TimeEntryController < ApplicationController
                         type += 1
                     end
             end
-        @posted = true
+        @message = "Time has been posted for #{@workdate}"
         
         erb :'time_entries/show', :layout => :'layouts/layout_time_entries'
     end

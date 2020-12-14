@@ -14,10 +14,6 @@ class ApplicationController < Sinatra::Base
     erb :'session/new', :layout => :'layouts/layout_signin'
   end
 
-  get '/failure' do
-    
-  end
-
   helpers do
     def logged_in?
       !!session[:user_id]

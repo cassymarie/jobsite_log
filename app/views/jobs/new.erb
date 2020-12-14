@@ -8,8 +8,8 @@
                 <th style="width:40%">Customer</th>
             </tr>
             <tr>
-                <td><input style="width:90%"  type="text" name="job[job_number]" ></td> 
-                <td><input style="width:95%" type="text" name="job[name]"></td>
+                <td><input style="width:90%"  type="text" name="job[job_number]" required></td> 
+                <td><input style="width:95%" type="text" name="job[name]" required></td>
                 <td><input style="width:95%" type="text" name="job[customer]"></td>
                 <input type="hidden" name="jobsite_id" value=<%=@jobsite.id%> >
             </tr>
