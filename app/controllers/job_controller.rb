@@ -1,5 +1,10 @@
 class JobController < ApplicationController
 
+    get '/abc-jobs' do
+        @jobs = Job.where(:customer => "ABC Company LLC")
+        erb :'jobs/customer'
+    end
+
     get '/jobsite/:id/jobs/new' do
         redirect '/error' if !logged_in?
         @jobsite = Jobsite.find(params[:id])

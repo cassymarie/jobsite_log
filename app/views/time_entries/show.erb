@@ -5,10 +5,17 @@
     
     <nav id="day_navbar" style="display:inline-flex;">
         <h2 id="page_title">Time Entry</h2>
-            <div class="day_class_reset">
+            <div id="day_class_reset">
             <% count = 6 %> 
             <% while count > -1 do %>
-                <button id="day_button" value=<%= count %> onclick="what_day_is_it(this)" class=<%= 'current_day' unless (count + 1).to_i != @sub_days.to_i %>><%= (@week_ending - (count).days).to_date.strftime("%^A")[0..2] %></button>
+                <button id="day_button <%= count %>" value=<%= count %> onclick="what_day_is_it(this)" 
+                <% if (count).to_i == @sub_days.to_i %>
+                    class='current_day'
+                 <% else %>
+                    class='another_day'
+                 <% end %>>
+                <%#= 'current_day' unless (count + 1).to_i != @sub_days.to_i else 'another_day'%>
+                <%= (@week_ending - (count).days).to_date.strftime("%^A")[0..2] %></button>
                 <% count -= 1 %> 
             <% end %>
             </div>

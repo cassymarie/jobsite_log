@@ -6,6 +6,8 @@ var day_btn = document.getElementById('day_button');
 var workdate = document.getElementById('workdate');
 var workday = document.getElementById('day_index');
 var week_ending = document.getElementById('week_ending');
+var reset_buttons = document.getElementById('day_class_reset');
+
 
 // function that stops the user from submitting the form when they press Enter
 function disableEnter(e){
@@ -47,6 +49,9 @@ function hours(value){
     return parseFloat(value);
 }
 
+function reset_button_class(){
+    reset_buttons.getElementsByTagName('button')[0].className = "another_day";
+}
 // calculates each rows hours - updates total/grand total
 function calculate_hours(){
     var grand_total = 0;
@@ -92,8 +97,9 @@ function calculate_hours(){
 // nav bar - day click, adds date to work day.
 function what_day_is_it(btn){
     workday.value = btn.value;
-    btn.className = "current_day";
+    reset_button_class();
     apply_workdate();
+    btn.className = "current_day";
 }
 
 function apply_workdate(){
