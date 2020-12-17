@@ -5,6 +5,7 @@
     align-items: baseline;
     border-bottom: 2px solid #ccc;
     margin-bottom: 16px;
+    margin-right: 0px;
 }
 
 #day_navbar_dash{
@@ -94,7 +95,6 @@
     width: 100%;
 }
 
-
 .job_select {
     width: 95%;
 }
@@ -104,18 +104,24 @@
 }
 
 #day_class_reset {
-    margin: 0;
-    padding: 0;
     width: 100%;
+    float: right;
+    text-align: right;
+}
+
+#day_class_reset button {
+    width: 10%;
+    height: 32px;
 }
 
 .another_day {
-    width: 15%;
-    height: 32px;
+    color: black;
+    background-color: lightgray;
+    font-weight: normal;
 }
 
 .current_day {
-    width: 17%;
-    height: 32px;
-    color: red;
+    color: white;
+    font-weight: bold;
+    background-color: darkred;
 }

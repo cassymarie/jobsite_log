@@ -90,7 +90,7 @@
                             <input id="hour_input" style="text-align:center;" class="dt" type="number" name="entry[][hours][dt]" step="0.25" onchange="calculate_hours()" value="">
                         </td>
                         <td id="blank_space"></td>
-                        <td class="employee_total" style="text-align:center;">0.00</td>
+                        <td class="employee_total" style="text-align:center;"></td>
                     </tr>
                     <% end %>
                 </tbody>
@@ -111,7 +111,7 @@
                     </tr>
                 </tfoot>  
             </table>
-            <input type="submit" value="Post Time">
+            <input id="submit_button_time" type="submit" value="Post Time">
         </form>
     </div>
     <% end %>

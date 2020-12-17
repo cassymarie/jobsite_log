@@ -57,6 +57,15 @@ html {
   background-color: rgba(68, 68, 68,.75);
 }
 
+#submit_button_time {
+  padding: 5px 15px;
+  font-size: 18px;
+  margin-top: 10px;
+  width: 15%;
+  color: white;
+  background-color: rgba(68, 68, 68,.75);
+}
+
 #link_button {
   padding: 5px 15px;
   font-size: 12px;

@@ -39,6 +39,10 @@ function my_row(selected){
     row.getElementsByClassName('add_job')[0].style.visibility = "hidden";
     newrow.getElementsByClassName('hide_title')[0].style.visibility = "hidden";
     newrow.getElementsByClassName('hide_name')[0].style.visibility = "hidden";
+    newrow.getElementsByClassName('reg')[0].value = "";
+    newrow.getElementsByClassName('ot')[0].value = "";
+    newrow.getElementsByClassName('dt')[0].value = "";
+    calculate_hours();
 }
 
 // changes the string value to a number
@@ -50,7 +54,10 @@ function hours(value){
 }
 
 function reset_button_class(){
-    reset_buttons.getElementsByTagName('button')[0].className = "another_day";
+    var buttons = reset_buttons.children;
+    for(var i = 0; i < buttons.length; i++){
+        buttons[i].className = "another_day";
+    }
 }
 // calculates each rows hours - updates total/grand total
 function calculate_hours(){
@@ -83,7 +90,10 @@ function calculate_hours(){
         grand_ot += ot_val;
         grand_dt += dt_val;
         
-        row.getElementsByClassName("employee_total")[0].innerText = total.toFixed(2);
+        if (total > 0){
+            row.getElementsByClassName("employee_total")[0].innerText = total.toFixed(2);
+        }
+        
 
         grand_total += total;
     }
@@ -110,6 +120,7 @@ function apply_workdate(){
     dayDate.setDate(dayDate.getDate() - datediff);
     workdate.value = dayDate.toDateString();
 }
+
 apply_workdate();
 
 
